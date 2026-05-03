@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://bandju.app/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bandju.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bandju.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bandju.app/"/>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://bandju.app/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bandju.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bandju.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bandju.app/"/>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://bandju.app/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bandju.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bandju.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bandju.app/download/"/>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bandju.app/en/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bandju.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bandju.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bandju.app/download/"/>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bandju.app/pro/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bandju.app/pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bandju.app/en/pro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bandju.app/pro/"/>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bandju.app/en/pro/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bandju.app/pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bandju.app/en/pro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bandju.app/pro/"/>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bandju.app/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bandju.app/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bandju.app/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bandju.app/privacy/"/>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://bandju.app/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bandju.app/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bandju.app/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bandju.app/privacy/"/>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+</urlset>

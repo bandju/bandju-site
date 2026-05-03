@@ -1,0 +1,2220 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BandjuPanel Pro Personal — несколько VPS без терминала</title>
+  <meta name="description" content="Pro Personal открывает управление несколькими VPS, доступы без лимита, пресеты, каскады, снимки и Doctor auto-fix в BandjuPanel.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://bandju.app/pro/">
+  <link rel="alternate" hreflang="ru" href="https://bandju.app/pro/">
+  <link rel="alternate" hreflang="en" href="https://bandju.app/en/pro/">
+  <link rel="alternate" hreflang="x-default" href="https://bandju.app/pro/">
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/fav-bandju.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BandjuPanel">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="BandjuPanel Pro Personal — несколько VPS без терминала">
+  <meta property="og:description" content="Несколько VPS, доступы без лимита, пресеты, каскады, снимки и Doctor auto-fix в одном интерфейсе.">
+  <meta property="og:url" content="https://bandju.app/pro/">
+  <meta property="og:image" content="https://bandju.app/assets/ogimage.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BandjuPanel">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BandjuPanel Pro Personal — несколько VPS без терминала">
+  <meta name="twitter:description" content="Управляйте несколькими VPS, доступами, пресетами и каскадами в одном интерфейсе.">
+  <meta name="twitter:image" content="https://bandju.app/assets/ogimage.jpg">
+  <meta name="twitter:image:alt" content="BandjuPanel">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --ink: #101114;
+      --muted: #666d75;
+      --brand: #4d6169;
+      --line: rgba(16, 17, 20, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      background: var(--bg);
+    }
+
+    body {
+      font-family: "Avenir Next", "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .header {
+      position: relative;
+      z-index: 20;
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 18px 0 10px;
+      border-bottom: 1px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .header-shell {
+      position: relative;
+      z-index: 20;
+      min-height: 0;
+    }
+
+    .header.is-stuck {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      margin: 0;
+      transform: translateX(-50%);
+      background: var(--bg);
+      border-bottom: 1px solid rgba(16, 17, 20, 0.06);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand img {
+      display: block;
+      width: min(232px, 42vw);
+      height: auto;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .menu-divider {
+      color: rgba(16, 17, 20, 0.28);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .menu-link {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.18s ease;
+    }
+
+    .menu-link:hover {
+      color: var(--ink);
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border: 1px solid rgba(16, 17, 20, 0.12);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .header.is-menu-open .menu-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .header.is-menu-open .menu-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header.is-menu-open .menu-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .lang-switch {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding-left: 18px;
+      border-left: 1px solid rgba(16, 17, 20, 0.08);
+      flex: none;
+    }
+
+    .lang-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 28px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      line-height: 1;
+      text-transform: uppercase;
+      cursor: pointer;
+      opacity: 0.68;
+      transition: color 0.18s ease, opacity 0.18s ease;
+    }
+
+    .lang-trigger:hover,
+    .lang-trigger.is-open {
+      color: var(--ink);
+      opacity: 1;
+    }
+
+    .lang-trigger-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 12px;
+      height: 12px;
+      color: currentColor;
+    }
+
+    .lang-trigger-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .lang-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 132px;
+      padding: 6px;
+      border: 1px solid rgba(16, 17, 20, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 12px 28px rgba(16, 17, 20, 0.08);
+      backdrop-filter: blur(14px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-4px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .lang-menu.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .lang-option:hover,
+    .lang-option.is-active {
+      background: rgba(16, 17, 20, 0.04);
+      color: var(--ink);
+    }
+
+    .lang-option-check {
+      opacity: 0;
+    }
+
+    .lang-option.is-active .lang-option-check {
+      opacity: 1;
+    }
+
+    .section,
+    .site-footer {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(320px, 0.74fr);
+      gap: 52px 80px;
+      align-items: end;
+      padding: clamp(76px, 10vw, 118px) 0 76px;
+    }
+
+    .hero > *,
+    .pro-panel,
+    .value-list,
+    .faq-list {
+      min-width: 0;
+    }
+
+    .eyebrow,
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin-bottom: 22px;
+      font-size: clamp(42px, 6vw, 60px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      overflow-wrap: anywhere;
+    }
+
+    .lead {
+      max-width: 44rem;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.62;
+    }
+
+    .lead,
+    .panel-copy,
+    .panel-note,
+    .value-copy,
+    .faq-copy {
+      overflow-wrap: anywhere;
+    }
+
+    .pro-panel {
+      border-top: 1px solid rgba(16, 17, 20, 0.12);
+      padding-top: 34px;
+    }
+
+    .panel-kicker {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .price-line {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .price {
+      font-size: clamp(52px, 7vw, 76px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .period {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .panel-copy {
+      margin-bottom: 26px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.68;
+    }
+
+    .button-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .checkout-label {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .checkout-input {
+      width: min(360px, 100%);
+      min-height: 48px;
+      border: 1px solid rgba(16, 17, 20, 0.14);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--ink);
+      padding: 0 18px;
+      font: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .checkout-input:focus {
+      border-color: rgba(16, 17, 20, 0.36);
+      box-shadow: 0 0 0 4px rgba(77, 97, 105, 0.08);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 32px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .button:disabled {
+      cursor: wait;
+      opacity: 0.72;
+      transform: none;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      background: #1b1d21;
+      border-color: #1b1d21;
+    }
+
+    .button-subtle {
+      border-color: rgba(16, 17, 20, 0.14);
+      background: #ffffff;
+      color: var(--ink);
+    }
+
+    .button-subtle:hover {
+      border-color: rgba(16, 17, 20, 0.3);
+      background: rgba(16, 17, 20, 0.03);
+    }
+
+    .button-row--panel {
+      margin-bottom: 10px;
+    }
+
+    .panel-note {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .checkout-message,
+    .checkout-result {
+      width: min(420px, 100%);
+      margin: 10px 0 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(16, 17, 20, 0.1);
+      border-radius: 18px;
+      background: rgba(16, 17, 20, 0.03);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .checkout-message.is-error {
+      border-color: rgba(156, 61, 51, 0.2);
+      background: rgba(156, 61, 51, 0.06);
+      color: #7f332d;
+    }
+
+    .checkout-result {
+      border-color: rgba(47, 115, 85, 0.2);
+      background: rgba(47, 115, 85, 0.08);
+      color: var(--ink);
+    }
+
+    .checkout-result-title {
+      margin-bottom: 4px;
+      font-weight: 800;
+    }
+
+    .checkout-result-copy {
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    .license-copy-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .license-copy-row code {
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+      padding: 0 10px;
+      border: 1px solid rgba(16, 17, 20, 0.1);
+      border-radius: 999px;
+      background: #ffffff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+    }
+
+    .copy-key-button {
+      min-height: 36px;
+      border: 1px solid rgba(16, 17, 20, 0.14);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--ink);
+      padding: 0 14px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .copy-key-button--subtle {
+      background: transparent;
+      color: var(--muted);
+    }
+
+    body.is-checkout-open {
+      overflow: hidden;
+    }
+
+    .checkout-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .checkout-modal[hidden] {
+      display: none !important;
+    }
+
+    .checkout-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 17, 20, 0.26);
+      backdrop-filter: blur(10px);
+    }
+
+    .checkout-modal__dialog {
+      position: relative;
+      width: min(560px, 100%);
+      border: 1px solid rgba(16, 17, 20, 0.08);
+      border-radius: 30px;
+      background: #ffffff;
+      box-shadow: 0 32px 80px rgba(16, 17, 20, 0.18);
+      padding: 28px;
+    }
+
+    .checkout-modal__close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(16, 17, 20, 0.12);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .checkout-modal__kicker {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .checkout-modal__title {
+      margin-bottom: 12px;
+      font-size: clamp(28px, 4vw, 30px);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .checkout-modal__copy {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .checkout-modal__form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .checkout-methods {
+      display: grid;
+      gap: 10px;
+    }
+
+    .checkout-methods__label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .checkout-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .checkout-option {
+      width: 100%;
+      padding: 16px 18px;
+      border: 1px solid rgba(16, 17, 20, 0.12);
+      border-radius: 22px;
+      background: #ffffff;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+    }
+
+    .checkout-option:hover {
+      transform: translateY(-1px);
+      border-color: rgba(16, 17, 20, 0.22);
+      background: rgba(16, 17, 20, 0.02);
+    }
+
+    .checkout-option.is-selected {
+      border-color: rgba(16, 17, 20, 0.28);
+      background: rgba(16, 17, 20, 0.03);
+    }
+
+    .checkout-option__top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .checkout-option__icon {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .checkout-option__body {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .checkout-option__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .checkout-option__title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .checkout-option__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 26px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(16, 17, 20, 0.06);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .checkout-option__copy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .checkout-option__footer-image {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: 30px;
+      margin-top: 12px;
+      object-fit: contain;
+    }
+
+    .checkout-modal-message {
+      padding: 14px 16px;
+      border: 1px solid rgba(16, 17, 20, 0.1);
+      border-radius: 18px;
+      background: rgba(16, 17, 20, 0.03);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .checkout-modal-message.is-error {
+      border-color: rgba(156, 61, 51, 0.2);
+      background: rgba(156, 61, 51, 0.06);
+      color: #7f332d;
+    }
+
+    .button-row--modal {
+      margin-bottom: 0;
+      justify-content: flex-start;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr);
+      gap: 36px 72px;
+      padding: 72px 0 104px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-kicker {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      max-width: 15ch;
+      margin-bottom: 0;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.05em;
+    }
+
+    .value-list {
+      display: grid;
+    }
+
+    .value-item {
+      display: grid;
+      grid-template-columns: minmax(140px, 0.45fr) minmax(0, 1fr);
+      gap: 18px 34px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(16, 17, 20, 0.08);
+    }
+
+    .value-item:first-child {
+      padding-top: 0;
+    }
+
+    .value-title {
+      margin-bottom: 0;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .value-copy {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.68;
+    }
+
+    .faq-section {
+      padding: 0 0 104px;
+    }
+
+    .faq-list {
+      margin-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(16, 17, 20, 0.08);
+    }
+
+    .faq-summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 28px;
+      gap: 20px;
+      align-items: center;
+      min-height: 76px;
+      padding: 0;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.025em;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .faq-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-toggle {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(16, 17, 20, 0.12);
+      border-radius: 999px;
+    }
+
+    .faq-toggle::before,
+    .faq-toggle::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 1.5px;
+      border-radius: 999px;
+      background: currentColor;
+      transform: translate(-50%, -50%);
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .faq-toggle::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq-item[open] .faq-toggle::after {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    .faq-copy {
+      max-width: 760px;
+      margin: -6px 56px 24px 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.68;
+    }
+
+    .site-footer {
+      padding: 0 0 44px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 24px 40px;
+      align-items: start;
+      border-top: 1px solid var(--line);
+      padding-top: 34px;
+    }
+
+    .footer-brand {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-copy,
+    .footer-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px 22px;
+      flex-wrap: wrap;
+      max-width: 520px;
+    }
+
+    .footer-link {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.18s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--ink);
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 10px;
+      padding-left: 28px;
+      border-left: 1px solid rgba(16, 17, 20, 0.08);
+    }
+
+    .footer-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: nowrap;
+      transition: color 0.18s ease;
+    }
+
+    .footer-contact-link:hover {
+      color: var(--ink);
+    }
+
+    .footer-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      color: currentColor;
+      flex: none;
+      transition: transform 0.18s ease;
+    }
+
+    .footer-contact-link:hover .footer-icon-link {
+      transform: translateY(-1px);
+    }
+
+    .footer-icon-link svg {
+      display: block;
+      width: 18px;
+      height: 17px;
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        width: min(calc(100% - 24px), 1160px);
+        align-items: center;
+        flex-direction: row;
+      }
+
+      .header.is-stuck {
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: none;
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+
+      .menu {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        left: 0;
+        z-index: 40;
+        display: grid;
+        gap: 0;
+        justify-content: stretch;
+        justify-items: stretch;
+        width: 100vw;
+        padding: 8px 32px;
+        border-top: 1px solid rgba(16, 17, 20, 0.08);
+        border-bottom: 1px solid rgba(16, 17, 20, 0.08);
+        background: #ffffff;
+        box-shadow: 0 18px 44px rgba(16, 17, 20, 0.08);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+        visibility: hidden;
+      }
+
+      .header.is-menu-open .menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .menu-divider {
+        display: none;
+      }
+
+      .header-actions {
+        width: auto;
+        margin-left: auto;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .menu-link {
+        display: block;
+        width: 100%;
+        justify-self: stretch;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(16, 17, 20, 0.08);
+        color: var(--ink);
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        text-align: left;
+      }
+
+      .menu-link:last-child {
+        border-bottom: 0;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .lang-switch {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .lang-menu {
+        right: 0;
+        left: auto;
+      }
+
+      .section,
+      .site-footer {
+        width: min(calc(100% - 48px), 1160px);
+      }
+
+      .hero,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 42px;
+        padding: 56px 0 72px;
+      }
+
+      h1 {
+        max-width: none;
+        font-size: 40px;
+      }
+
+      .section-title {
+        max-width: none;
+      }
+
+      .button-row {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button-row .button {
+        width: 100%;
+      }
+
+      .content-grid {
+        padding: 72px 0 82px;
+      }
+
+      .value-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .faq-copy {
+        margin-right: 0;
+      }
+
+      .faq-section {
+        padding-bottom: 82px;
+      }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+        padding-bottom: 32px;
+      }
+
+      .footer-links,
+      .footer-contact {
+        justify-content: flex-start;
+      }
+
+      .footer-contact {
+        align-items: flex-start;
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="header-shell">
+      <header class="header">
+        <a class="brand" href="/" aria-label="BandjuPanel">
+          <img src="/assets/brand/logo-bandju.svg" alt="BandjuPanel">
+        </a>
+        <div class="header-actions">
+          <nav class="menu" id="site-menu" aria-label="Главное меню">
+            <a class="menu-link" href="/#features" data-i18n="menuFeatures">Возможности</a>
+            <span class="menu-divider" aria-hidden="true">•</span>
+            <a class="menu-link" href="/#how" data-i18n="menuHow">Как это работает</a>
+            <span class="menu-divider" aria-hidden="true">•</span>
+            <a class="menu-link" href="/#pricing" data-i18n="menuPricing">Тарифы</a>
+            <span class="menu-divider" aria-hidden="true">•</span>
+            <a class="menu-link" href="/pro/" data-i18n="menuPro">Pro Personal</a>
+            <span class="menu-divider" aria-hidden="true">•</span>
+            <a class="menu-link" href="/download/" data-i18n="menuDownload">Скачать</a>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Language switcher">
+            <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu">
+              <span data-lang-current>RU</span>
+              <span class="lang-trigger-icon" aria-hidden="true">
+                <svg viewBox="0 0 12 12" fill="none">
+                  <path d="M3 4.5 6 7.5 9 4.5"/>
+                </svg>
+              </span>
+            </button>
+            <div class="lang-menu" id="lang-menu" role="menu" aria-label="Select language"></div>
+          </div>
+          <button class="menu-toggle" type="button" aria-controls="site-menu" aria-label="Открыть меню" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <section class="section hero" aria-labelledby="pro-title">
+      <div>
+        <p class="eyebrow" data-i18n="eyebrow">Pro Personal</p>
+        <h1 id="pro-title" data-i18n="title">Несколько VPS без ручной рутины и терминала</h1>
+        <p class="lead" data-i18n="lead">
+          Free подходит для одного VPS. Pro Personal - когда нужно управлять несколькими серверами, доступами и повторяющимися задачами.
+        </p>
+      </div>
+      <div class="pro-panel">
+        <p class="panel-kicker" data-i18n="panelKicker">Личная лицензия</p>
+        <p class="price-line">
+          <span class="price" data-i18n="price">1990 ₽</span>
+          <span class="period" data-i18n="period">разово</span>
+        </p>
+        <p class="panel-copy" data-i18n="panelCopy">
+          Без лимита на VPS и доступы - для работы с несколькими серверами в одном интерфейсе.
+        </p>
+        <div class="button-row button-row--panel">
+          <button class="button" type="button" data-open-checkout data-i18n="primaryCta">Приобрести Pro</button>
+          <a class="button button-subtle" href="/download/" data-i18n="secondaryCta">Скачать Free</a>
+        </div>
+        <div class="checkout-message" data-checkout-message hidden></div>
+        <div class="checkout-result" data-checkout-result hidden>
+          <p class="checkout-result-title" data-i18n="checkoutPaidTitle">Оплата получена</p>
+          <p class="checkout-result-copy" data-i18n="checkoutPaidCopy">Скопируйте ключ и активируйте Pro в приложении.</p>
+          <div class="license-copy-row">
+            <code data-license-key></code>
+            <button class="copy-key-button" type="button" data-copy-license data-i18n="copyLicense">Скопировать</button>
+            <button class="copy-key-button copy-key-button--subtle" type="button" data-hide-license data-i18n="hideLicense">Скрыть</button>
+          </div>
+        </div>
+        <p class="panel-note" data-i18n="panelNote">После оплаты ключ создаётся автоматически и активируется в приложении.</p>
+      </div>
+    </section>
+
+    <div class="checkout-modal" data-checkout-modal hidden>
+      <div class="checkout-modal__backdrop" data-close-checkout></div>
+      <div class="checkout-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+        <button class="checkout-modal__close" type="button" data-close-checkout aria-label="Close dialog">×</button>
+        <p class="checkout-modal__kicker" data-i18n="checkoutModalKicker">Оплата Pro</p>
+        <h2 class="checkout-modal__title" id="checkout-modal-title" data-i18n="checkoutModalTitle">Укажите email и способ оплаты</h2>
+        <p class="checkout-modal__copy" data-i18n="checkoutModalCopy">Email нужен для создания лицензии и отправки ключа после оплаты.</p>
+        <form class="checkout-modal__form" data-checkout-form method="post" action="https://license.bandju.app/payments/lava/checkout">
+          <label class="checkout-label">
+            <span data-i18n="checkoutEmailLabel">Email для ключа</span>
+            <input class="checkout-input" data-checkout-email name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </label>
+          <input type="hidden" data-checkout-option name="paymentOption">
+          <input type="hidden" data-checkout-locale name="locale" value="ru">
+          <input type="hidden" data-checkout-return-url name="returnUrl" value="https://bandju.app/pro/">
+          <div class="checkout-methods">
+            <p class="checkout-methods__label" data-i18n="checkoutMethodLabel">Способ оплаты</p>
+            <div class="checkout-options" data-checkout-options></div>
+          </div>
+          <div class="checkout-modal-message" data-checkout-modal-message hidden></div>
+          <div class="button-row button-row--modal">
+            <button class="button" type="submit" data-checkout-submit data-i18n="checkoutContinue">Перейти к оплате</button>
+            <button class="button button-subtle" type="button" data-close-checkout data-i18n="checkoutCancel">Отмена</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <section class="section content-grid" aria-labelledby="value-title">
+      <div>
+        <p class="section-kicker" data-i18n="valueKicker">Что открывает Pro</p>
+        <h2 class="section-title" id="value-title" data-i18n="valueTitle">Работа с несколькими VPS в одном интерфейсе - без разрозненных действий</h2>
+      </div>
+      <div class="value-list">
+        <article class="value-item">
+          <h3 class="value-title" data-i18n="value1Title">VPS без лимита</h3>
+          <p class="value-copy" data-i18n="value1Copy">Добавляйте неограниченное количество VPS и переключайтесь между ними в одном интерфейсе.</p>
+        </article>
+        <article class="value-item">
+          <h3 class="value-title" data-i18n="value2Title">Доступы без лимита</h3>
+          <p class="value-copy" data-i18n="value2Copy">Создавайте неограниченное количество VPN и прокси доступов.</p>
+        </article>
+        <article class="value-item">
+          <h3 class="value-title" data-i18n="value3Title">Пресеты</h3>
+          <p class="value-copy" data-i18n="value3Copy">Сохраняйте готовые настройки и применяйте их одной кнопкой без повторной ручной настройки.</p>
+        </article>
+        <article class="value-item">
+          <h3 class="value-title" data-i18n="value4Title">Каскады</h3>
+          <p class="value-copy" data-i18n="value4Copy">Стройте цепочки маршрутизации: входите через один сервер, выходите через другой IP и при необходимости добавляйте WARP в этот же маршрут.</p>
+        </article>
+        <article class="value-item">
+          <h3 class="value-title" data-i18n="value5Title">Снимки и восстановление</h3>
+          <p class="value-copy" data-i18n="value5Copy">Сохраняйте состояние настроек и быстро возвращайтесь к ним.</p>
+        </article>
+        <article class="value-item">
+          <h3 class="value-title" data-i18n="value6Title">Doctor auto-fix</h3>
+          <p class="value-copy" data-i18n="value6Copy">Находит и автоматически исправляет типовые ошибки.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq-section" aria-labelledby="faq-title">
+      <p class="section-kicker" data-i18n="faqKicker">Детали</p>
+      <h2 class="section-title" id="faq-title" data-i18n="faqTitle">Без подписки - базовые функции всегда доступны</h2>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary class="faq-summary">
+            <span data-i18n="faq1Title">Это подписка?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-copy" data-i18n="faq1Copy">Нет. Pro Personal оплачивается один раз. Ежемесячной подписки в текущей модели нет.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span data-i18n="faq2Title">Нужен ли Pro для одного VPS?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-copy" data-i18n="faq2Copy">Нет. Free остается для одного VPS, базовых сервисов, диагностики и обновлений безопасности.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span data-i18n="faq3Title">Что с лицензией?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-copy" data-i18n="faq3Copy">Pro Personal — личная лицензия для одного устройства. Если понадобится перенос, устройство можно будет отвязать через поддержку.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span data-i18n="faq4Title">VPS входит в цену?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-copy" data-i18n="faq4Copy">Нет. Сервер оплачивается отдельно у вашего VPS-провайдера. BandjuPanel управляет тем VPS, который вы подключаете сами.</p>
+        </details>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div>
+        <p class="footer-brand">BandjuPanel</p>
+        <p class="footer-copy" data-i18n="footerCopy">Управление VPN и proxy на своем VPS через SSH.</p>
+        <p class="footer-meta">© 2026 BandjuPanel</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a class="footer-link" href="/" data-i18n="footerHome">Главная</a>
+        <a class="footer-link" href="/download/" data-i18n="menuDownload">Скачать</a>
+        <a class="footer-link" href="/#pricing" data-i18n="menuPricing">Тарифы</a>
+        <a class="footer-link" href="/privacy/">Privacy</a>
+      </nav>
+      <div class="footer-contact">
+        <a class="footer-contact-link" href="https://t.me/bandjupanel" target="_blank" rel="noreferrer noopener" aria-label="Telegram">
+          <span class="footer-icon-link" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="none" viewBox="0 0 18 17" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M16.62.131.67 6.59C-.201 6.857-.173 7.778.473 8l3.996 1.334 1.526 5.012c.186.55.334.756.655.76.333 0 .461-.125.808-.452.406-.408 1.023-1.049 2.001-2.064l4.16 3.29c.764.451 1.316.217 1.507-.76l2.606-13.79c.28-1.199-.379-1.555-1.11-1.2ZM5.095 9.028l9.086-6.096c.445-.321.587.038.386.285L7.026 10.47l-.387 3.62-1.544-5.06Z"/>
+            </svg>
+          </span>
+          <span>@bandjupanel</span>
+        </a>
+        <a class="footer-contact-link" href="mailto:support@bandju.app" target="_blank" rel="noreferrer noopener" aria-label="Email">
+          <span class="footer-icon-link" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="none" viewBox="0 0 18 17" aria-hidden="true" focusable="false">
+              <path d="M2.25 4.25h13.5v8.5H2.25z" stroke="currentColor" stroke-width="1.35" rx="1.8"/>
+              <path d="m3.4 5.35 5.02 4.11a.9.9 0 0 0 1.16 0l5.02-4.11" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>support@bandju.app</span>
+        </a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const translations = {
+        ru: {
+          label: 'RU',
+          menuLabel: 'Русский',
+          htmlLang: 'ru',
+          titleText: 'BandjuPanel Pro Personal — несколько VPS без терминала',
+          description: 'Pro Personal открывает управление несколькими VPS, доступы без лимита, пресеты, каскады, снимки и Doctor auto-fix в BandjuPanel.',
+          menuFeatures: 'Возможности',
+          menuHow: 'Как это работает',
+          menuDownload: 'Скачать',
+          menuPricing: 'Тарифы',
+          menuPro: 'Pro Personal',
+          footerHome: 'Главная',
+          eyebrow: 'Pro Personal',
+          title: 'Несколько VPS без ручной рутины и терминала',
+          lead: 'Free подходит для одного VPS. Pro Personal - когда нужно управлять несколькими серверами, доступами и повторяющимися задачами.',
+          panelKicker: 'Личная лицензия',
+          price: '1990 ₽',
+          period: 'разово',
+          panelCopy: 'Без лимита на VPS и доступы - для работы с несколькими серверами в одном интерфейсе.',
+          primaryCta: 'Приобрести Pro',
+          secondaryCta: 'Скачать Free',
+          checkoutModalKicker: 'Оплата Pro',
+          checkoutModalTitle: 'Укажите email и способ оплаты',
+          checkoutModalCopy: 'Email нужен для создания лицензии и отправки ключа после оплаты.',
+          checkoutEmailLabel: 'Email для ключа',
+          checkoutMethodLabel: 'Способ оплаты',
+          checkoutContinue: 'Перейти к оплате',
+          checkoutCancel: 'Отмена',
+          checkoutMethodCard: 'Банковская карта',
+          checkoutMethodCardCopy: 'Оплата картой в рублях через защищённую форму Lava.',
+          checkoutMethodSbp: 'СБП',
+          checkoutMethodSbpCopy: 'Оплата через Систему быстрых платежей в рублях.',
+          checkoutMethodPaypal: 'PayPal',
+          checkoutMethodPaypalCopy: 'Оплата через PayPal в долларах США.',
+          checkoutMethodPix: 'Pix',
+          checkoutMethodPixCopy: 'Мгновенная оплата в долларах США для покупателей из Бразилии.',
+          checkoutEmailError: 'Укажите корректный email для получения лицензии.',
+          checkoutStarting: 'Создаём безопасную ссылку на оплату...',
+          checkoutOpening: 'Открываем оплату в новой вкладке...',
+          checkoutOpened: 'Оплата открыта в соседней вкладке. После оплаты ключ появится здесь и придёт на email.',
+          checkoutPopupBlocked: 'Браузер заблокировал новую вкладку оплаты. Разрешите всплывающие окна и попробуйте ещё раз.',
+          checkoutError: 'Не удалось создать оплату. Попробуйте ещё раз или напишите в Telegram.',
+          checkoutPending: 'Заказ создан. После оплаты вернитесь на эту страницу, чтобы получить ключ.',
+          checkoutPaidTitle: 'Оплата получена',
+          checkoutPaidCopy: 'Скопируйте ключ и активируйте Pro в приложении.',
+          copyLicense: 'Скопировать',
+          hideLicense: 'Скрыть',
+          copiedLicense: 'Скопировано',
+          panelNote: 'После оплаты ключ создаётся автоматически и активируется в приложении.',
+          valueKicker: 'Что открывает Pro',
+          valueTitle: 'Работа с несколькими VPS в одном интерфейсе - без разрозненных действий',
+          value1Title: 'VPS без лимита',
+          value1Copy: 'Добавляйте неограниченное количество VPS и переключайтесь между ними в одном интерфейсе.',
+          value2Title: 'Доступы без лимита',
+          value2Copy: 'Создавайте неограниченное количество VPN и прокси доступов.',
+          value3Title: 'Пресеты',
+          value3Copy: 'Сохраняйте готовые настройки и применяйте их одной кнопкой без повторной ручной настройки.',
+          value4Title: 'Каскады',
+          value4Copy: 'Стройте цепочки маршрутизации: входите через один сервер, выходите через другой IP и при необходимости добавляйте WARP в этот же маршрут.',
+          value5Title: 'Снимки и восстановление',
+          value5Copy: 'Сохраняйте состояние настроек и быстро возвращайтесь к ним.',
+          value6Title: 'Doctor auto-fix',
+          value6Copy: 'Находит и автоматически исправляет типовые ошибки.',
+          faqKicker: 'Детали',
+          faqTitle: 'Без подписки - базовые функции всегда доступны',
+          faq1Title: 'Это подписка?',
+          faq1Copy: 'Нет. Pro Personal оплачивается один раз. Ежемесячной подписки в текущей модели нет.',
+          faq2Title: 'Нужен ли Pro для одного VPS?',
+          faq2Copy: 'Нет. Free остается для одного VPS, базовых сервисов, диагностики и обновлений безопасности.',
+          faq3Title: 'Что с лицензией?',
+          faq3Copy: 'Pro Personal — личная лицензия для одного устройства. Если понадобится перенос, устройство можно будет отвязать через поддержку.',
+          faq4Title: 'VPS входит в цену?',
+          faq4Copy: 'Нет. Сервер оплачивается отдельно у вашего VPS-провайдера. BandjuPanel управляет тем VPS, который вы подключаете сами.',
+          footerCopy: 'Управление VPN и proxy на своем VPS через SSH.'
+        },
+        en: {
+          label: 'EN',
+          menuLabel: 'English',
+          htmlLang: 'en',
+          titleText: 'BandjuPanel Pro Personal - multiple VPS instances, no terminal required',
+          description: 'Pro Personal unlocks multiple VPS instances, unlimited access profiles, presets, cascades, snapshots, and Doctor auto-fix in BandjuPanel.',
+          menuFeatures: 'Features',
+          menuHow: 'How it works',
+          menuDownload: 'Download',
+          menuPricing: 'Pricing',
+          menuPro: 'Pro Personal',
+          footerHome: 'Home',
+          eyebrow: 'Pro Personal',
+          title: 'Multiple VPS instances without repetitive work or terminal use',
+          lead: 'Free covers one VPS. Pro Personal is for managing multiple servers, access profiles, and repeated tasks.',
+          panelKicker: 'Personal license',
+          price: '$29',
+          period: 'one-time',
+          panelCopy: 'No VPS or access-profile limits for managing multiple servers in one interface.',
+          primaryCta: 'Get Pro',
+          secondaryCta: 'Download Free',
+          checkoutModalKicker: 'Pro checkout',
+          checkoutModalTitle: 'Enter your email and payment method',
+          checkoutModalCopy: 'Your email is used to create the license and send the key after payment.',
+          checkoutEmailLabel: 'Email for the key',
+          checkoutMethodLabel: 'Payment method',
+          checkoutContinue: 'Continue to payment',
+          checkoutCancel: 'Cancel',
+          checkoutMethodCard: 'Bank card',
+          checkoutMethodCardCopy: 'Pay in USD with a secure card form powered by Lava.',
+          checkoutMethodSbp: 'SBP',
+          checkoutMethodSbpCopy: 'Pay in RUB through the Russian Faster Payments System.',
+          checkoutMethodPaypal: 'PayPal',
+          checkoutMethodPaypalCopy: 'Pay in USD with your PayPal account.',
+          checkoutMethodPix: 'Pix',
+          checkoutMethodPixCopy: 'Instant USD payment option for buyers in Brazil.',
+          checkoutEmailError: 'Enter a valid email address for the license key.',
+          checkoutStarting: 'Creating a secure payment link...',
+          checkoutOpening: 'Opening payment in a new tab...',
+          checkoutOpened: 'Payment is open in the next tab. After payment, the key will appear here and also arrive by email.',
+          checkoutPopupBlocked: 'The browser blocked the payment tab. Allow pop-ups for this site and try again.',
+          checkoutError: 'Could not start checkout. Try again or contact us on Telegram.',
+          checkoutPending: 'Order created. After payment, return to this page to get your key.',
+          checkoutPaidTitle: 'Payment received',
+          checkoutPaidCopy: 'Copy the key and activate Pro in the app.',
+          copyLicense: 'Copy',
+          hideLicense: 'Hide',
+          copiedLicense: 'Copied',
+          panelNote: 'After payment, the key is created automatically and activated in the app.',
+          valueKicker: 'What Pro unlocks',
+          valueTitle: 'Manage multiple VPS instances in one interface, without separate manual steps.',
+          value1Title: 'Unlimited VPS instances',
+          value1Copy: 'Add as many VPS instances as you need and switch between them in one interface.',
+          value2Title: 'Unlimited access profiles',
+          value2Copy: 'Create unlimited VPN and proxy access profiles.',
+          value3Title: 'Presets',
+          value3Copy: 'Save ready-to-use settings and apply them with one click instead of repeating manual setup.',
+          value4Title: 'Cascades',
+          value4Copy: 'Build routing chains: connect through one server, exit from another IP, and add WARP to the same route when needed.',
+          value5Title: 'Snapshots and restore',
+          value5Copy: 'Save your settings state and restore it quickly.',
+          value6Title: 'Doctor auto-fix',
+          value6Copy: 'Find and automatically fix common issues.',
+          faqKicker: 'Details',
+          faqTitle: 'No subscription. Core features stay available.',
+          faq1Title: 'Is it a subscription?',
+          faq1Copy: 'No. Pro Personal is a one-time purchase. The current model has no monthly subscription.',
+          faq2Title: 'Do I need Pro for one VPS?',
+          faq2Copy: 'No. Free remains available for one VPS, core services, diagnostics, and security updates.',
+          faq3Title: 'How does the license work?',
+          faq3Copy: 'Pro Personal is a personal license for one device. If you need to move it, support can unlink the previous device.',
+          faq4Title: 'Is a VPS included?',
+          faq4Copy: 'No. You pay your VPS provider separately. BandjuPanel manages the VPS you add yourself.',
+          footerCopy: 'VPN and proxy management on your VPS over SSH.'
+        }
+      };
+
+      const titleElement = document.querySelector('title');
+      const descriptionElement = document.querySelector('meta[name="description"]');
+      const translatableNodes = document.querySelectorAll('[data-i18n]');
+      const headerShell = document.querySelector('.header-shell');
+      const header = document.querySelector('.header');
+      const langTrigger = document.querySelector('.lang-trigger');
+      const langMenu = document.getElementById('lang-menu');
+      const langCurrent = document.querySelector('[data-lang-current]');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const siteMenu = document.querySelector('.menu');
+      const faqItems = document.querySelectorAll('.faq-item');
+      const checkoutModal = document.querySelector('[data-checkout-modal]');
+      const checkoutForm = document.querySelector('[data-checkout-form]');
+      const checkoutEmailInput = document.querySelector('[data-checkout-email]');
+      const checkoutOptionInput = document.querySelector('[data-checkout-option]');
+      const checkoutLocaleInput = document.querySelector('[data-checkout-locale]');
+      const checkoutReturnUrlInput = document.querySelector('[data-checkout-return-url]');
+      const checkoutOptionsNode = document.querySelector('[data-checkout-options]');
+      const checkoutSubmit = document.querySelector('[data-checkout-submit]');
+      const checkoutOpenButton = document.querySelector('[data-open-checkout]');
+      const checkoutCloseButtons = document.querySelectorAll('[data-close-checkout]');
+      const checkoutModalMessage = document.querySelector('[data-checkout-modal-message]');
+      const checkoutMessage = document.querySelector('[data-checkout-message]');
+      const checkoutResult = document.querySelector('[data-checkout-result]');
+      const licenseKeyNode = document.querySelector('[data-license-key]');
+      const copyLicenseButton = document.querySelector('[data-copy-license]');
+      const hideLicenseButton = document.querySelector('[data-hide-license]');
+      const checkoutStorageKey = 'bandju-lava-checkout';
+      const checkoutEmailStorageKey = 'bandju-checkout-email';
+      const checkoutOptionStorageKey = 'bandju-checkout-option';
+      const checkoutStatusUrl = 'https://license.bandju.app/api/payments/lava/order-status';
+      const checkoutMessageOrigin = 'https://license.bandju.app';
+      const checkoutWindowName = 'bandju-payment';
+      const checkoutRevealDurationMs = 24 * 60 * 60 * 1000;
+      const checkoutHandoffTimeoutMs = 12000;
+      let currentLanguage = 'ru';
+      let checkoutHandoffTimer = 0;
+
+      const normalizeLang = (value) => (value === 'en' ? 'en' : 'ru');
+
+      const renderLanguageOptions = (activeLang) => {
+        if (!langMenu) return;
+        langMenu.innerHTML = '';
+
+        Object.entries(translations).forEach(([lang, dictionary]) => {
+          const option = document.createElement('button');
+          option.type = 'button';
+          option.className = `lang-option${lang === activeLang ? ' is-active' : ''}`;
+          option.setAttribute('role', 'menuitemradio');
+          option.setAttribute('aria-checked', lang === activeLang ? 'true' : 'false');
+          option.dataset.langOption = lang;
+          option.innerHTML = `<span>${dictionary.menuLabel}</span><span class="lang-option-check" aria-hidden="true">✓</span>`;
+          langMenu.appendChild(option);
+        });
+      };
+
+      const setMenuOpen = (isOpen) => {
+        if (!langTrigger || !langMenu) return;
+        langTrigger.classList.toggle('is-open', isOpen);
+        langTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        langMenu.classList.toggle('is-open', isOpen);
+      };
+
+      const setSiteMenuOpen = (isOpen) => {
+        if (!header || !menuToggle) return;
+        header.classList.toggle('is-menu-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        window.requestAnimationFrame(syncHeaderShellHeight);
+      };
+
+      const syncHeaderShellHeight = () => {
+        if (!headerShell || !header) return;
+        headerShell.style.height = `${header.offsetHeight}px`;
+      };
+
+      const applyLanguage = (language, syncUrl = true) => {
+        const lang = normalizeLang(language);
+        const dictionary = translations[lang];
+        currentLanguage = lang;
+
+        document.documentElement.lang = dictionary.htmlLang;
+        if (titleElement) titleElement.textContent = dictionary.titleText;
+        if (descriptionElement) descriptionElement.setAttribute('content', dictionary.description);
+        if (langCurrent) langCurrent.textContent = dictionary.label;
+
+        translatableNodes.forEach((node) => {
+          const key = node.getAttribute('data-i18n');
+          if (key && dictionary[key]) {
+            node.textContent = dictionary[key];
+          }
+        });
+
+        renderLanguageOptions(lang);
+        renderCheckoutOptions();
+
+        try {
+          window.localStorage.setItem('bandju-site-lang', lang);
+        } catch (_) {}
+
+        if (syncUrl) {
+          const url = new URL(window.location.href);
+          if (lang === 'ru') {
+            url.searchParams.delete('lang');
+          } else {
+            url.searchParams.set('lang', lang);
+          }
+          window.history.replaceState({}, '', url);
+        }
+
+        window.requestAnimationFrame(syncHeaderShellHeight);
+      };
+
+      const checkoutDictionary = () => translations[currentLanguage] || translations.ru;
+
+      const checkoutOptions = () => {
+        const dictionary = checkoutDictionary();
+        if (currentLanguage === 'ru') {
+          return [
+            {
+              id: 'rub-card',
+              title: dictionary.checkoutMethodCard,
+              copy: dictionary.checkoutMethodCardCopy,
+              badge: 'RUB',
+              icon: '/assets/pay_var/card.jpg',
+              footerImage: '/assets/pay_var/card_ru.jpg'
+            },
+            {
+              id: 'rub-sbp',
+              title: dictionary.checkoutMethodSbp,
+              copy: dictionary.checkoutMethodSbpCopy,
+              badge: 'RUB',
+              icon: '/assets/pay_var/sbp.jpg'
+            }
+          ];
+        }
+
+        return [
+          {
+            id: 'usd-card',
+            title: dictionary.checkoutMethodCard,
+            copy: dictionary.checkoutMethodCardCopy,
+            badge: 'USD',
+            icon: '/assets/pay_var/card.jpg',
+            footerImage: '/assets/pay_var/card_en.jpg'
+          },
+          {
+            id: 'usd-paypal',
+            title: dictionary.checkoutMethodPaypal,
+            copy: dictionary.checkoutMethodPaypalCopy,
+            badge: 'USD',
+            icon: '/assets/pay_var/paypal.jpg',
+            footerImage: '/assets/pay_var/card_paypal.jpg'
+          }
+        ];
+      };
+
+      const setCheckoutModalMessage = (message, isError = false) => {
+        if (!checkoutModalMessage) return;
+        checkoutModalMessage.textContent = message;
+        checkoutModalMessage.hidden = !message;
+        checkoutModalMessage.classList.toggle('is-error', Boolean(isError));
+      };
+
+      const renderCheckoutOptions = () => {
+        if (!checkoutOptionsNode || !checkoutOptionInput) return;
+
+        const availableOptions = checkoutOptions();
+        const storedOption = (() => {
+          try {
+            return window.localStorage.getItem(checkoutOptionStorageKey) || '';
+          } catch (_) {
+            return '';
+          }
+        })();
+        const activeOption = availableOptions.some((option) => option.id === storedOption)
+          ? storedOption
+          : availableOptions[0].id;
+
+        checkoutOptionInput.value = activeOption;
+        checkoutOptionsNode.innerHTML = availableOptions.map((option) => `
+          <button
+            class="checkout-option${option.id === activeOption ? ' is-selected' : ''}"
+            type="button"
+            data-checkout-option-button
+            data-option-id="${option.id}"
+          >
+            <span class="checkout-option__top">
+              <img class="checkout-option__icon" src="${option.icon}" alt="" aria-hidden="true">
+              <span class="checkout-option__body">
+                <span class="checkout-option__header">
+                  <span class="checkout-option__title">${option.title}</span>
+                  <span class="checkout-option__badge">${option.badge}</span>
+                </span>
+                <span class="checkout-option__copy">${option.copy}</span>
+                ${option.footerImage ? `<img class="checkout-option__footer-image" src="${option.footerImage}" alt="" aria-hidden="true">` : ''}
+              </span>
+            </span>
+          </button>
+        `).join('');
+      };
+
+      const setCheckoutOpen = (isOpen) => {
+        if (!checkoutModal) return;
+        checkoutModal.hidden = !isOpen;
+        document.body.classList.toggle('is-checkout-open', Boolean(isOpen));
+        if (isOpen) {
+          renderCheckoutOptions();
+          setCheckoutModalMessage('');
+          if (checkoutEmailInput) {
+            try {
+              const storedEmail = window.localStorage.getItem(checkoutEmailStorageKey);
+              if (storedEmail && !checkoutEmailInput.value) {
+                checkoutEmailInput.value = storedEmail;
+              }
+            } catch (_) {}
+            window.setTimeout(() => checkoutEmailInput.focus(), 20);
+          }
+        }
+      };
+
+      if (checkoutModal) {
+        setCheckoutOpen(false);
+      }
+
+      const setCheckoutMessage = (message, isError = false) => {
+        if (!checkoutMessage) return;
+        checkoutMessage.textContent = message;
+        checkoutMessage.hidden = !message;
+        checkoutMessage.classList.toggle('is-error', Boolean(isError));
+      };
+
+      const setCheckoutLoading = (isLoading) => {
+        if (!checkoutSubmit) return;
+        checkoutSubmit.disabled = Boolean(isLoading);
+        checkoutSubmit.textContent = isLoading ? checkoutDictionary().checkoutStarting : checkoutDictionary().checkoutContinue;
+      };
+
+      const openCheckoutTab = () => {
+        try {
+          const popup = window.open('', checkoutWindowName);
+          if (popup) {
+            popup.focus();
+          }
+          return popup;
+        } catch (_) {
+          return null;
+        }
+      };
+
+      const clearCheckoutHandoffTimer = () => {
+        if (!checkoutHandoffTimer) return;
+        window.clearTimeout(checkoutHandoffTimer);
+        checkoutHandoffTimer = 0;
+      };
+
+      const escapeAttr = (value) => String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      const checkoutBridgeHtml = ({ email, paymentOption, locale, returnUrl }) => `
+<!doctype html>
+<html lang="${locale === 'en' ? 'en' : 'ru'}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bandju Panel</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f5f7fb;
+      color: #111827;
+      font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .shell {
+      width: min(420px, calc(100vw - 32px));
+      padding: 32px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+      text-align: center;
+    }
+    .spinner {
+      width: 28px;
+      height: 28px;
+      margin: 0 auto 16px;
+      border-radius: 999px;
+      border: 3px solid rgba(17, 24, 39, 0.12);
+      border-top-color: #111827;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>${locale === 'en' ? 'Opening checkout...' : 'Открываем оплату...'}</p>
+  </main>
+  <form id="checkout-form" method="post" action="https://license.bandju.app/payments/lava/checkout" style="display:none">
+    <input type="hidden" name="email" value="${escapeAttr(email)}">
+    <input type="hidden" name="paymentOption" value="${escapeAttr(paymentOption)}">
+    <input type="hidden" name="locale" value="${escapeAttr(locale)}">
+    <input type="hidden" name="returnUrl" value="${escapeAttr(returnUrl)}">
+  </form>
+  <script>
+    window.addEventListener('load', function () {
+      document.getElementById('checkout-form').submit();
+    });
+  <\/script>
+</body>
+</html>`;
+
+      const readStoredCheckout = () => {
+        try {
+          const raw = window.localStorage.getItem(checkoutStorageKey);
+          const parsed = raw ? JSON.parse(raw) : null;
+          if (!parsed || !parsed.orderId || !parsed.orderToken) {
+            return null;
+          }
+          return parsed;
+        } catch (_) {
+          return null;
+        }
+      };
+
+      const clearStoredCheckout = () => {
+        try {
+          window.localStorage.removeItem(checkoutStorageKey);
+        } catch (_) {}
+      };
+
+      const writeStoredCheckout = (payload) => {
+        try {
+          window.localStorage.setItem(checkoutStorageKey, JSON.stringify(payload));
+        } catch (_) {}
+      };
+
+      const isStoredLicenseExpired = (payload) => {
+        if (!payload?.paidAt) return false;
+        return Number(payload.paidAt) + checkoutRevealDurationMs <= Date.now();
+      };
+
+      const readActiveStoredCheckout = () => {
+        const payload = readStoredCheckout();
+        if (!payload) return null;
+        if (isStoredLicenseExpired(payload)) {
+          clearStoredCheckout();
+          return null;
+        }
+        return payload;
+      };
+
+      const hydrateStoredCheckoutFromWindowName = () => {
+        try {
+          if (!window.name) return;
+          const parsed = JSON.parse(window.name);
+          const handoff = parsed?.bandjuCheckout;
+          if (!handoff?.orderId || !handoff?.orderToken) return;
+
+          writeStoredCheckout({
+            orderId: handoff.orderId,
+            orderToken: handoff.orderToken,
+            paymentOption: handoff.paymentOption || '',
+            createdAt: handoff.createdAt || Date.now()
+          });
+          window.name = '';
+        } catch (_) {}
+      };
+
+      const hideLicenseKey = (remember = false) => {
+        if (checkoutResult) {
+          checkoutResult.hidden = true;
+        }
+        if (!remember) return;
+        const storedCheckout = readActiveStoredCheckout();
+        if (!storedCheckout) return;
+        writeStoredCheckout({
+          ...storedCheckout,
+          dismissedAt: Date.now()
+        });
+      };
+
+      const showLicenseKey = (licenseKey, { persist = true } = {}) => {
+        if (!licenseKey || !checkoutResult || !licenseKeyNode) return;
+        licenseKeyNode.textContent = licenseKey;
+        checkoutResult.hidden = false;
+        setCheckoutMessage('');
+        if (!persist) return;
+        const storedCheckout = readActiveStoredCheckout() || {};
+        writeStoredCheckout({
+          ...storedCheckout,
+          licenseKey,
+          paidAt: storedCheckout.paidAt || Date.now(),
+          dismissedAt: 0
+        });
+      };
+
+      const restoreStoredLicenseKey = () => {
+        const storedCheckout = readActiveStoredCheckout();
+        if (!storedCheckout?.licenseKey) return;
+        if (storedCheckout.dismissedAt) {
+          hideLicenseKey(false);
+          return;
+        }
+        showLicenseKey(storedCheckout.licenseKey, { persist: false });
+      };
+
+      const checkStoredCheckout = async (attempt = 0) => {
+        const storedCheckout = readActiveStoredCheckout();
+        if (!storedCheckout) return;
+
+        try {
+          const response = await fetch(checkoutStatusUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderId: storedCheckout.orderId,
+              orderToken: storedCheckout.orderToken
+            })
+          });
+          const payload = await response.json();
+          if (!response.ok || !payload.ok || !payload.data) return;
+
+          if (payload.data.status === 'paid' && payload.data.licenseKey) {
+            if (storedCheckout.dismissedAt && storedCheckout.licenseKey === payload.data.licenseKey) {
+              hideLicenseKey(false);
+              return;
+            }
+            showLicenseKey(payload.data.licenseKey);
+            return;
+          }
+
+          setCheckoutMessage(checkoutDictionary().checkoutPending);
+          if (attempt < 5) {
+            window.setTimeout(() => checkStoredCheckout(attempt + 1), 3000);
+          }
+        } catch (_) {
+          if (attempt === 0) return;
+        }
+      };
+
+      const languageRoutes = {
+        ru: '/pro/',
+        en: '/en/pro/'
+      };
+
+      const normalizePath = (path) => (path.endsWith('/') ? path : `${path}/`);
+      const initialLanguage = normalizePath(window.location.pathname) === languageRoutes.en ? 'en' : 'ru';
+
+      const navigateToLanguage = (language) => {
+        const lang = normalizeLang(language);
+
+        try {
+          window.localStorage.setItem('bandju-site-lang', lang);
+        } catch (_) {}
+
+        const targetPath = languageRoutes[lang] || languageRoutes.ru;
+        const targetUrl = `${targetPath}${window.location.hash || ''}`;
+
+        if (normalizePath(window.location.pathname) !== targetPath) {
+          window.location.href = targetUrl;
+          return;
+        }
+
+        applyLanguage(lang, false);
+      };
+
+      applyLanguage(initialLanguage, false);
+
+      if (header) {
+        let stickyTicking = false;
+
+        const updateStickyHeader = () => {
+          header.classList.toggle('is-stuck', window.scrollY > 200);
+        };
+
+        syncHeaderShellHeight();
+        updateStickyHeader();
+
+        window.addEventListener('scroll', () => {
+          if (stickyTicking) return;
+          stickyTicking = true;
+          window.requestAnimationFrame(() => {
+            stickyTicking = false;
+            updateStickyHeader();
+          });
+        }, { passive: true });
+
+        window.addEventListener('resize', syncHeaderShellHeight, { passive: true });
+
+        if (typeof ResizeObserver !== 'undefined') {
+          const headerResizeObserver = new ResizeObserver(() => {
+            syncHeaderShellHeight();
+          });
+          headerResizeObserver.observe(header);
+        }
+      }
+
+      faqItems.forEach((item) => {
+        item.addEventListener('toggle', () => {
+          if (!item.open) return;
+          faqItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.removeAttribute('open');
+            }
+          });
+        });
+      });
+
+      if (checkoutOpenButton) {
+        checkoutOpenButton.addEventListener('click', () => {
+          setCheckoutOpen(true);
+        });
+      }
+
+      checkoutCloseButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          setCheckoutOpen(false);
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        const optionButton = event.target.closest('[data-checkout-option-button]');
+        if (!optionButton || !checkoutOptionInput || !checkoutOptionsNode) return;
+
+        checkoutOptionInput.value = optionButton.dataset.optionId || '';
+        try {
+          window.localStorage.setItem(checkoutOptionStorageKey, checkoutOptionInput.value);
+        } catch (_) {}
+
+        checkoutOptionsNode.querySelectorAll('.checkout-option').forEach((node) => {
+          node.classList.toggle('is-selected', node === optionButton);
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && checkoutModal && !checkoutModal.hidden) {
+          setCheckoutOpen(false);
+        }
+      });
+
+      window.addEventListener('message', (event) => {
+        if (event.origin !== checkoutMessageOrigin || !event.data || typeof event.data !== 'object') {
+          return;
+        }
+
+        if (event.data.type === 'bandju:lavaCheckoutCreated') {
+          clearCheckoutHandoffTimer();
+          const payload = event.data.payload || {};
+          if (!payload.orderId || !payload.orderToken) {
+            return;
+          }
+          writeStoredCheckout({
+            orderId: payload.orderId,
+            orderToken: payload.orderToken,
+            paymentOption: payload.paymentOption || '',
+            createdAt: payload.createdAt || Date.now(),
+          });
+          setCheckoutLoading(false);
+          setCheckoutOpen(false);
+          setCheckoutModalMessage('');
+          setCheckoutMessage(checkoutDictionary().checkoutOpened);
+          checkStoredCheckout();
+          return;
+        }
+
+        if (event.data.type === 'bandju:lavaCheckoutError') {
+          clearCheckoutHandoffTimer();
+          setCheckoutLoading(false);
+          setCheckoutOpen(false);
+          setCheckoutModalMessage('');
+          setCheckoutMessage(event.data.payload?.message || checkoutDictionary().checkoutError, true);
+        }
+      });
+
+      if (checkoutForm && checkoutEmailInput) {
+        checkoutForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const dictionary = checkoutDictionary();
+          const email = checkoutEmailInput.value.trim();
+          const paymentOption = checkoutOptionInput?.value || '';
+          const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          if (!email || !isValidEmail) {
+            setCheckoutModalMessage(dictionary.checkoutEmailError, true);
+            checkoutEmailInput.focus();
+            checkoutEmailInput.setAttribute('aria-invalid', 'true');
+            return;
+          }
+          checkoutEmailInput.removeAttribute('aria-invalid');
+
+          const paymentTab = openCheckoutTab();
+          if (!paymentTab) {
+            setCheckoutModalMessage(dictionary.checkoutPopupBlocked, true);
+            return;
+          }
+
+          setCheckoutLoading(true);
+          setCheckoutModalMessage(dictionary.checkoutStarting);
+
+          try {
+            try {
+              window.localStorage.setItem(checkoutEmailStorageKey, email);
+            } catch (_) {}
+            paymentTab.document.open();
+            paymentTab.document.write(checkoutBridgeHtml({
+              email,
+              paymentOption,
+              locale: currentLanguage,
+              returnUrl: window.location.href,
+            }));
+            paymentTab.document.close();
+            setCheckoutLoading(false);
+            setCheckoutOpen(false);
+            setCheckoutModalMessage('');
+            setCheckoutMessage(dictionary.checkoutOpened);
+            clearCheckoutHandoffTimer();
+            checkoutHandoffTimer = window.setTimeout(() => {
+              checkoutHandoffTimer = 0;
+              if (!readActiveStoredCheckout()) {
+                setCheckoutMessage(dictionary.checkoutError, true);
+              }
+            }, checkoutHandoffTimeoutMs);
+          } catch (error) {
+            try {
+              paymentTab.close();
+            } catch (_) {}
+            setCheckoutLoading(false);
+            setCheckoutModalMessage(error?.message || dictionary.checkoutError, true);
+          }
+        });
+      }
+
+      if (copyLicenseButton && licenseKeyNode) {
+        copyLicenseButton.addEventListener('click', async () => {
+          const key = licenseKeyNode.textContent.trim();
+          if (!key) return;
+          try {
+            await navigator.clipboard.writeText(key);
+            const previous = copyLicenseButton.textContent;
+            copyLicenseButton.textContent = checkoutDictionary().copiedLicense;
+            window.setTimeout(() => {
+              copyLicenseButton.textContent = previous;
+            }, 1400);
+          } catch (_) {
+            window.prompt('Copy license key:', key);
+          }
+        });
+      }
+
+      if (hideLicenseButton) {
+        hideLicenseButton.addEventListener('click', () => {
+          hideLicenseKey(true);
+        });
+      }
+
+      hydrateStoredCheckoutFromWindowName();
+      restoreStoredLicenseKey();
+      checkStoredCheckout();
+
+      if (langTrigger && langMenu) {
+        langTrigger.addEventListener('click', () => {
+          setMenuOpen(!langMenu.classList.contains('is-open'));
+          setSiteMenuOpen(false);
+        });
+
+        langMenu.addEventListener('click', (event) => {
+          const option = event.target.closest('[data-lang-option]');
+          if (!option) return;
+          navigateToLanguage(option.dataset.langOption);
+          setMenuOpen(false);
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!event.target.closest('.lang-switch')) {
+            setMenuOpen(false);
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            setMenuOpen(false);
+          }
+        });
+      }
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener('click', () => {
+          setSiteMenuOpen(!header.classList.contains('is-menu-open'));
+          setMenuOpen(false);
+        });
+
+        siteMenu.addEventListener('click', (event) => {
+          if (event.target.closest('.menu-link')) {
+            setSiteMenuOpen(false);
+          }
+        });
+
+        document.addEventListener('click', (event) => {
+          if (header && !header.contains(event.target)) {
+            setSiteMenuOpen(false);
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            setSiteMenuOpen(false);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
