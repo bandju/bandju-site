@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BandjuPanel - VPN and proxy management on your VPS, no terminal required</title>
+  <meta name="description" content="BandjuPanel helps you manage VPN, proxy, domains, HTTPS, and server tasks on your VPS over SSH, without using the terminal or exposing a public web admin panel.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://bandju.app/en/">
+  <link rel="alternate" hreflang="ru" href="https://bandju.app/">
+  <link rel="alternate" hreflang="en" href="https://bandju.app/en/">
+  <link rel="alternate" hreflang="x-default" href="https://bandju.app/">
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/fav-bandju.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BandjuPanel">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:title" content="BandjuPanel - VPN and proxy management on your VPS, no terminal required">
+  <meta property="og:description" content="Manage VPN, proxy, domains, HTTPS, and server tasks on your VPS over SSH, without using the terminal or exposing a public web admin panel.">
+  <meta property="og:url" content="https://bandju.app/en/">
+  <meta property="og:image" content="https://bandju.app/assets/ogimage.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BandjuPanel">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BandjuPanel - VPN and proxy management on your VPS, no terminal required">
+  <meta name="twitter:description" content="Manage VPN, proxy, domains, HTTPS, and server tasks on your VPS over SSH, no terminal required.">
+  <meta name="twitter:image" content="https://bandju.app/assets/ogimage.jpg">
+  <meta name="twitter:image:alt" content="BandjuPanel">
+    <link rel="stylesheet" href="/assets/site.css?v=a320afef41">
+  </head>
+  <body class="site-page site-home site-lang-en">
+    <main class="page">
+      <!-- shared-header:start --><div class="header-shell">
+  <header class="header">
+    <a class="brand" href="/en/" aria-label="BandjuPanel">
+      <img src="/assets/brand/logo-bandju.svg" alt="BandjuPanel" width="200" height="29">
+    </a>
+    <div class="header-actions">
+      <nav class="menu" id="site-menu" aria-label="Main menu">
+        <a class="menu-link" href="/en/#features">Features</a>
+        <span class="menu-divider" aria-hidden="true">•</span>
+        <a class="menu-link" href="/en/#pricing">Pricing</a>
+        <span class="menu-divider" aria-hidden="true">•</span>
+        <a class="menu-link" href="/en/changelog/">Updates</a>
+        <span class="menu-divider" aria-hidden="true">•</span>
+        <a class="menu-link" href="/en/pro/">Pro Personal</a>
+        <span class="menu-divider" aria-hidden="true">•</span>
+        <a class="menu-link" href="/en/download/">Download</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu">
+          <span data-lang-current>EN</span>
+          <span class="lang-trigger-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none">
+              <path d="M3 4.5 6 7.5 9 4.5"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" aria-label="Select language">
+          <a class="lang-option" href="/" role="menuitemradio" aria-checked="false" hreflang="ru">
+              <span>Русский</span>
+              <span class="lang-option-check" aria-hidden="true">✓</span>
+            </a><a class="lang-option is-active" href="/en/" role="menuitemradio" aria-checked="true" hreflang="en">
+              <span>English</span>
+              <span class="lang-option-check" aria-hidden="true">✓</span>
+            </a>
+        </div>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="site-menu" aria-label="Open menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+</div>
+<!-- shared-header:end -->
+      
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">BandjuPanel</p>
+        <h1 data-i18n="title">Simple VPN and proxy management on your VPS</h1>
+        <p class="lead" data-i18n="lead">One interface for managing VPN, proxy, and server tasks on your VPS over a secure SSH tunnel. No terminal required.</p>
+        <a class="button" href="/en/download/" data-i18n="cta">Download</a>
+      </div>
+
+      <div class="pattern" aria-hidden="true">
+        <div class="pattern-shape pattern-left"></div>
+        <div class="pattern-shape pattern-center"></div>
+        <div class="pattern-shape pattern-right"></div>
+      </div>
+    </section>
+
+    <section id="how" class="section" aria-labelledby="how-title">
+      <div class="section-copy">
+        <div>
+          <p class="section-kicker" data-i18n="howKicker">How it works</p>
+          <h2 class="section-title" id="how-title" data-i18n="howTitle">Connect to your VPS through a secure SSH tunnel.</h2>
+          <div class="how-media" data-video-card>
+            <span class="how-video-badge" data-i18n="howVideoBadge">Video overview</span>
+            <video class="how-video" controls preload="none" playsinline poster="/assets/media/bandju-overview-poster.jpg">
+              <source src="/assets/media/bandju-overview.mp4" type="video/mp4">
+            </video>
+            <button class="how-video-overlay" type="button" data-video-play aria-label="Play video overview">
+              <span class="how-video-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8.5 6.5v11l9-5.5-9-5.5Z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="section-side">
+          <p class="section-lead" data-i18n="howLead">You do not need advanced knowledge or complex VPS setup to get started. Install BandjuPanel on the server, connect over SSH, and manage everything in a clear interface without using the terminal.</p>
+          <p class="flow-note" data-i18n="howNote">A direct connection to your server, with no public admin panel.</p>
+        </div>
+      </div>
+
+      <div class="flow-grid">
+        <article class="flow-card">
+          <span class="step-icon icon-vps" aria-hidden="true"></span>
+          <div>
+            <h3 class="step-title" data-i18n="step1Title">Add a VPS</h3>
+            <p class="step-copy" data-i18n="step1Copy">Enter the IP address, port, and server name. The app creates an SSH key and connects automatically.</p>
+          </div>
+        </article>
+        <article class="flow-card">
+          <span class="step-icon icon-ssh" aria-hidden="true"></span>
+          <div>
+            <h3 class="step-title" data-i18n="step2Title">Connect over SSH</h3>
+            <p class="step-copy" data-i18n="step2Copy">BandjuPanel works through an SSH tunnel, so there is no public admin panel or open management port on the server.</p>
+          </div>
+        </article>
+        <article class="flow-card">
+          <span class="step-icon icon-access" aria-hidden="true"></span>
+          <div>
+            <h3 class="step-title" data-i18n="step3Title">Create access profiles</h3>
+            <p class="step-copy" data-i18n="step3Copy">Create VPN and proxy users, manage their access, and share connection details as a QR code, link, or ready-to-use config file.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section control-section" aria-labelledby="control-title">
+      <div class="control-layout">
+        <div class="control-content">
+          <p class="section-kicker" data-i18n="controlKicker">Security model</p>
+          <h2 class="section-title" id="control-title" data-i18n="controlTitle">Local SSH management, no terminal required</h2>
+          <div class="section-side">
+            <p class="section-lead" data-i18n="controlLead">BandjuPanel connects to your VPS over SSH. Your keys stay with you, and your data is not sent to third-party servers.</p>
+            <p class="flow-note" data-i18n="controlNote">The panel API is reachable only locally on the server.</p>
+          </div>
+
+          <div class="control-list">
+            <article class="control-item">
+              <h3 class="control-title" data-i18n="control1Title">Local app</h3>
+              <p class="control-copy" data-i18n="control1Copy">You manage everything from the app on your computer.</p>
+            </article>
+            <article class="control-item">
+              <h3 class="control-title" data-i18n="control2Title">SSH and local-only API</h3>
+              <p class="control-copy" data-i18n="control2Copy">The connection to the server goes through SSH. No admin panel is exposed to the internet.</p>
+            </article>
+            <article class="control-item">
+              <h3 class="control-title" data-i18n="control3Title">Data stays on your VPS</h3>
+              <p class="control-copy" data-i18n="control3Copy">Configuration files, services, and panel state stay on your server.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="control-visual-wrap" aria-hidden="true">
+          <div class="control-pattern">
+            <svg class="control-mark" viewBox="0 0 124 124" focusable="false" aria-hidden="true">
+              <path fill="currentColor" d="M74.74,31.17v26.76h-37.77v58.08H9V7.99h42.57c12.79,0,23.17,10.37,23.17,23.17Z"/>
+              <path fill="currentColor" d="M114.83,7.99v58.08c0,13.79-5.59,26.27-14.63,35.31s-21.51,14.62-35.3,14.62h-15.81v-45.95h37.77V7.99h27.97Z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section feature-section" aria-labelledby="features-title">
+      <div class="section-copy feature-copy">
+        <div>
+          <p class="section-kicker" data-i18n="featuresKicker">One screen for everything</p>
+          <h2 class="section-title" id="features-title" data-i18n="featuresTitle">One interface for servers, services, and clients</h2>
+          <p class="section-lead" data-i18n="featuresLead">BandjuPanel keeps servers, services, and clients in one place.</p>
+          <p class="flow-note" data-i18n="featuresNote">The same workflow across protocols, services, and VPS instances.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-window">
+            <picture>
+              <source srcset="/assets/accesses-screen.webp" type="image/webp">
+              <img class="feature-screenshot" src="/assets/accesses-screen.jpg" alt="" width="700" height="457" loading="lazy" decoding="async">
+            </picture>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-summary-grid">
+        <article class="feature-summary-item">
+          <h3 class="feature-summary-title" data-i18n="feature1Title">Servers</h3>
+          <p class="feature-summary-copy" data-i18n="feature1Copy">Save multiple VPS profiles and reconnect over SSH without re-entering a password.</p>
+        </article>
+        <article class="feature-summary-item">
+          <h3 class="feature-summary-title" data-i18n="feature2Title">Services</h3>
+          <p class="feature-summary-copy" data-i18n="feature2Copy">Manage AmneziaWG, XRay, Hysteria2, MTProto, WARP, Domain, Gateway, Cascade, BBR, and other modules.</p>
+        </article>
+        <article class="feature-summary-item">
+          <h3 class="feature-summary-title" data-i18n="feature3Title">Access profiles</h3>
+          <p class="feature-summary-copy" data-i18n="feature3Copy">Create clients, share QR codes and links, enable access, and reissue credentials.</p>
+        </article>
+        <article class="feature-summary-item">
+          <h3 class="feature-summary-title" data-i18n="feature4Title">Diagnostics</h3>
+          <p class="feature-summary-copy" data-i18n="feature4Copy">Check Docker, containers, ports, WARP, and logs; Doctor helps with common failures.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gateway-section" aria-labelledby="gateway-title">
+      <div class="section-copy">
+        <div>
+          <p class="section-kicker" data-i18n="gatewayKicker">Domain and Gateway</p>
+          <h2 class="section-title" id="gateway-title" data-i18n="gatewayTitle">HTTPS, placeholder site, and XRay on 443 from one interface</h2>
+        </div>
+        <div class="section-side">
+          <p class="section-lead" data-i18n="gatewayLead">BandjuPanel checks DNS and ports 80/443, issues a Let's Encrypt certificate, and helps you launch a domain without manual nginx setup.</p>
+          <p class="flow-note" data-i18n="gatewayNote">Gateway lets the website and services share standard web ports on one VPS.</p>
+        </div>
+      </div>
+
+      <div class="gateway-grid">
+        <article class="gateway-item">
+          <h3 class="gateway-title" data-i18n="gateway1Title">Domain checks</h3>
+          <p class="gateway-copy" data-i18n="gateway1Copy">The panel checks DNS, the VPS IP, and port 80/443 availability before issuing a certificate.</p>
+          <div class="gateway-tags" aria-hidden="true">
+            <span class="gateway-tag">DNS</span>
+            <span class="gateway-tag">80/443</span>
+          </div>
+        </article>
+        <article class="gateway-item">
+          <h3 class="gateway-title" data-i18n="gateway2Title">Certificate and site</h3>
+          <p class="gateway-copy" data-i18n="gateway2Copy">Issue a Let's Encrypt certificate and enable a placeholder site: choose a built-in design or upload your own ZIP website.</p>
+          <div class="gateway-tags" aria-hidden="true">
+            <span class="gateway-tag">HTTPS</span>
+            <span class="gateway-tag">ZIP</span>
+          </div>
+        </article>
+        <article class="gateway-item">
+          <h3 class="gateway-title" data-i18n="gateway3Title">XRay through Gateway</h3>
+          <p class="gateway-copy" data-i18n="gateway3Copy">XRay can run through Gateway on 443 together with the placeholder site, without competing for the port.</p>
+          <div class="gateway-tags" aria-hidden="true">
+            <span class="gateway-tag">XRay</span>
+            <span class="gateway-tag">Gateway</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="access" class="section" aria-labelledby="access-title">
+      <div class="section-copy">
+        <div>
+          <p class="section-kicker" data-i18n="accessKicker">Access profiles</p>
+          <h2 class="section-title" id="access-title" data-i18n="accessTitle">Create VPN and proxy access without building configs by hand.</h2>
+        </div>
+        <div class="section-side">
+          <p class="section-lead" data-i18n="accessLead">Create connections, choose the protocol, and share access through a QR code or link, with no manual setup.</p>
+          <p class="flow-note" data-i18n="accessNote">One client list across services.</p>
+        </div>
+      </div>
+
+      <div class="access-grid">
+        <article class="access-item">
+          <span class="access-icon icon-qr-link" aria-hidden="true"></span>
+          <h3 class="access-title" data-i18n="accessQrTitle">QR codes and links</h3>
+          <p class="access-copy" data-i18n="accessQrCopy">After creating a client, you can share a QR code, link, config file, or another ready-to-use connection format.</p>
+        </article>
+        <article class="access-item">
+          <span class="access-icon icon-clients-status" aria-hidden="true"></span>
+          <h3 class="access-title" data-i18n="accessClientsTitle">Clients and status</h3>
+          <p class="access-copy" data-i18n="accessClientsCopy">Edit clients and track their activity and connection status in real time.</p>
+        </article>
+        <article class="access-item">
+          <span class="access-icon icon-protocols" aria-hidden="true"></span>
+          <h3 class="access-title" data-i18n="accessProtocolsTitle">Multiple protocols</h3>
+          <p class="access-copy" data-i18n="accessProtocolsCopy">AmneziaWG, XRay, Hysteria2, and MTProto in one interface.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing" class="section pricing-section" aria-labelledby="pricing-title">
+      <div class="section-copy">
+        <div>
+          <p class="section-kicker" data-i18n="pricingKicker">Pricing</p>
+          <h2 class="section-title" id="pricing-title" data-i18n="pricingTitle">One VPS is free. Pro is for multiple servers.</h2>
+        </div>
+        <div class="section-side">
+          <p class="section-lead" data-i18n="pricingLead">Free is for one VPS. Pro is for multiple servers and advanced features.</p>
+          <p class="flow-note" data-i18n="pricingNote">One-time payment. No monthly subscription.</p>
+        </div>
+      </div>
+
+      <div class="pricing-panel">
+        <div class="pricing-plans">
+          <article class="pricing-plan">
+            <h3 class="plan-name" data-i18n="pricingFreeName">Free</h3>
+            <p class="plan-price-line">
+              <span class="plan-price" data-i18n="pricingFreePrice">$0</span>
+            </p>
+            <p class="plan-summary" data-i18n="pricingFreeSummary">One VPS, up to 4 access profiles, and core management workflows.</p>
+            <a class="button button-subtle pricing-button" href="/en/download/" data-i18n="pricingFreeCta">Download</a>
+          </article>
+
+          <article class="pricing-plan">
+            <h3 class="plan-name" data-i18n="pricingProName">Pro Personal</h3>
+            <p class="plan-price-line">
+              <span class="plan-price" data-i18n="pricingProPrice">$29</span>
+              <span class="plan-period" data-i18n="pricingProPeriod">one-time</span>
+            </p>
+            <p class="plan-summary" data-i18n="pricingProSummary">No VPS or access-profile limits, plus advanced workflows.</p>
+            <a class="button pricing-button" href="/en/pro/" data-i18n="pricingProCta">Get Pro</a>
+          </article>
+        </div>
+
+        <div class="pricing-compare" role="table" aria-label="Plan comparison">
+          <div class="compare-row" role="row">
+            <div class="compare-value" role="cell" data-plan="Free">
+              <span class="compare-label" data-i18n="pricingCompareServers">Servers</span>
+              <span data-i18n="pricingFreeServers">1 VPS</span>
+            </div>
+            <div class="compare-value is-pro" role="cell" data-plan="Pro">
+              <span class="compare-label" data-i18n="pricingCompareServers">Servers</span>
+              <span data-i18n="pricingProServers">Unlimited VPS</span>
+            </div>
+          </div>
+          <div class="compare-row" role="row">
+            <div class="compare-value" role="cell" data-plan="Free">
+              <span class="compare-label" data-i18n="pricingCompareAccess">Access profiles</span>
+              <span data-i18n="pricingFreeAccess">Up to 4 access profiles</span>
+            </div>
+            <div class="compare-value is-pro" role="cell" data-plan="Pro">
+              <span class="compare-label" data-i18n="pricingCompareAccess">Access profiles</span>
+              <span data-i18n="pricingProAccess">Unlimited access profiles</span>
+            </div>
+          </div>
+          <div class="compare-row" role="row">
+            <div class="compare-value" role="cell" data-plan="Free">
+              <span class="compare-label" data-i18n="pricingCompareCore">Services</span>
+              <span data-i18n="pricingFreeCore">AmneziaWG, XRay, Hysteria2, MTProto</span>
+            </div>
+            <div class="compare-value is-pro" role="cell" data-plan="Pro">
+              <span class="compare-label" data-i18n="pricingCompareCore">Services</span>
+              <span data-i18n="pricingProCore">AmneziaWG, XRay, Hysteria2, MTProto</span>
+            </div>
+          </div>
+          <div class="compare-row" role="row">
+            <div class="compare-value" role="cell" data-plan="Free">
+              <span class="compare-label" data-i18n="pricingCompareDiagnostics">Diagnostics</span>
+              <span data-i18n="pricingFreeDiagnostics">Basic logs, diagnostics, and Doctor problem checks</span>
+            </div>
+            <div class="compare-value is-pro" role="cell" data-plan="Pro">
+              <span class="compare-label" data-i18n="pricingCompareDiagnostics">Diagnostics</span>
+              <span data-i18n="pricingProDiagnostics">Advanced diagnostics and fixes for common issues</span>
+            </div>
+          </div>
+          <div class="compare-row" role="row">
+            <div class="compare-value" role="cell" data-plan="Free">
+              <span class="compare-label" data-i18n="pricingCompareWorkflows">Advanced workflows</span>
+              <span data-i18n="pricingFreeWorkflows">One server setup</span>
+            </div>
+            <div class="compare-value is-pro" role="cell" data-plan="Pro">
+              <span class="compare-label" data-i18n="pricingCompareWorkflows">Advanced workflows</span>
+              <span data-i18n="pricingProWorkflows">Cross-server access management, cascades, presets, backups, and bulk actions</span>
+            </div>
+          </div>
+          <div class="compare-row" role="row">
+            <div class="compare-value" role="cell" data-plan="Free">
+              <span class="compare-label" data-i18n="pricingCompareUpdates">Updates</span>
+              <span data-i18n="pricingFreeUpdates">Bug fixes and security updates</span>
+            </div>
+            <div class="compare-value is-pro" role="cell" data-plan="Pro">
+              <span class="compare-label" data-i18n="pricingCompareUpdates">Updates</span>
+              <span data-i18n="pricingProUpdates">Bug fixes and security updates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-pattern" aria-hidden="true">
+        <div class="pricing-pattern-shape pricing-pattern-left"></div>
+        <div class="pricing-pattern-shape pricing-pattern-center"></div>
+        <div class="pricing-pattern-shape pricing-pattern-right"></div>
+      </div>
+    </section>
+    <!-- changelog-preview:start -->
+    <section id="changelog" class="section changelog-preview" aria-labelledby="changelog-title">
+      <div class="changelog-preview-panel">
+        <div>
+          <p class="section-kicker">Updates</p>
+          <span class="changelog-preview-version">Version 1.8.0</span>
+          <h2 class="section-title" id="changelog-title">What is new in BandjuPanel 1.8.0</h2>
+        </div>
+        <div>
+          <p class="section-lead">A short summary of the latest release. The full version history is available in the changelog.</p>
+          <ul class="changelog-preview-list">
+            <li>Added a new Backups section for saving services, settings, and accesses to a local file.</li>
+            <li>A clean VPS can be fully restored, while a configured VPS can safely import accesses without overwriting its current settings.</li>
+            <li>Before restoring, panel shows a detailed plan and checks compatibility, missing services, ports, domain, and DNS.</li>
+            <li>Added VPS-to-VPS migration: IP and domain settings are adapted, while connections that need a new config or rebinding are marked separately.</li>
+          </ul>
+          <div class="changelog-preview-actions">
+            <a class="button button-subtle" href="/en/changelog/">Full changelog</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- changelog-preview:end -->
+
+    <section class="section final-section" aria-labelledby="final-title">
+      <div class="final-cta">
+        <div>
+          <p class="section-kicker" data-i18n="finalKicker">Start</p>
+          <h2 class="final-title" id="final-title" data-i18n="finalTitle">Start with one VPS, no terminal or complex setup</h2>
+        </div>
+        <div class="final-side">
+          <p class="final-lead" data-i18n="finalLead">Install BandjuPanel and manage your VPS over SSH from a clear interface.</p>
+          <div class="final-actions">
+            <a class="button" href="/en/download/" data-i18n="finalDownload">Download</a>
+            <a class="button button-subtle" href="/en/pro/" data-i18n="finalPro">Get Pro</a>
+          </div>
+          <p class="final-note" data-i18n="finalNote">Free is available for one VPS and up to 4 access profiles.</p>
+        </div>
+      </div>
+    </section>
+      <!-- shared-footer:start --><footer class="site-footer">
+  <div>
+    <p class="footer-brand">BandjuPanel</p>
+    <p class="footer-copy">VPN and proxy management on your VPS over SSH.</p>
+    <p class="footer-meta">© 2026 BandjuPanel</p>
+  </div>
+  <nav class="footer-links" aria-label="Footer">
+    <a class="footer-link" href="/en/">Home</a>
+    <a class="footer-link" href="/en/download/">Download</a>
+    <a class="footer-link" href="/en/#pricing">Pricing</a>
+    <a class="footer-link" href="/en/changelog/">Updates</a>
+    <a class="footer-link" href="/en/pro/">Pro Personal</a>
+    <a class="footer-link" href="/en/privacy/">Privacy</a>
+    <a class="footer-link" href="https://github.com/bandju/bandju-panel-releases/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noreferrer noopener">Third-party notices</a>
+  </nav>
+  <div class="footer-contact">
+    <a class="footer-contact-link" href="https://t.me/bandjupanel" target="_blank" rel="noreferrer noopener" aria-label="Telegram channel">
+      <span class="footer-icon-link" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="none" viewBox="0 0 18 17" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M16.62.131.67 6.59C-.201 6.857-.173 7.778.473 8l3.996 1.334 1.526 5.012c.186.55.334.756.655.76.333 0 .461-.125.808-.452.406-.408 1.023-1.049 2.001-2.064l4.16 3.29c.764.451 1.316.217 1.507-.76l2.606-13.79c.28-1.199-.379-1.555-1.11-1.2ZM5.095 9.028l9.086-6.096c.445-.321.587.038.386.285L7.026 10.47l-.387 3.62-1.544-5.06Z"></path>
+        </svg>
+      </span>
+      <span class="footer-contact-copy">
+        <span class="footer-contact-label">Channel</span>
+        <span class="footer-contact-value">@bandjupanel</span>
+      </span>
+    </a>
+    <a class="footer-contact-link" href="https://t.me/bandju_support_bot" target="_blank" rel="noreferrer noopener" aria-label="Telegram support">
+      <span class="footer-icon-link" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="none" viewBox="0 0 18 17" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M16.62.131.67 6.59C-.201 6.857-.173 7.778.473 8l3.996 1.334 1.526 5.012c.186.55.334.756.655.76.333 0 .461-.125.808-.452.406-.408 1.023-1.049 2.001-2.064l4.16 3.29c.764.451 1.316.217 1.507-.76l2.606-13.79c.28-1.199-.379-1.555-1.11-1.2ZM5.095 9.028l9.086-6.096c.445-.321.587.038.386.285L7.026 10.47l-.387 3.62-1.544-5.06Z"></path>
+        </svg>
+      </span>
+      <span class="footer-contact-copy">
+        <span class="footer-contact-label">Support</span>
+        <span class="footer-contact-value">@bandju_support_bot</span>
+      </span>
+    </a>
+    <a class="footer-contact-link" href="mailto:support@bandju.app" target="_blank" rel="noreferrer noopener" aria-label="Email">
+      <span class="footer-icon-link" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="none" viewBox="0 0 18 17" aria-hidden="true" focusable="false">
+          <path d="M2.25 4.25h13.5v8.5H2.25z" stroke="currentColor" stroke-width="1.35" rx="1.8"></path>
+          <path d="m3.4 5.35 5.02 4.11a.9.9 0 0 0 1.16 0l5.02-4.11" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="footer-contact-copy">
+        <span class="footer-contact-label">Email</span>
+        <span class="footer-contact-value">support@bandju.app</span>
+      </span>
+    </a>
+  </div>
+</footer>
+<!-- shared-footer:end -->
+    </main>
+    <script>
+    (() => {
+      const translations = {
+        ru: {
+          label: 'RU',
+          menuLabel: 'Русский',
+          htmlLang: 'ru',
+          titleText: 'BandjuPanel — VPN и прокси на VPS без терминала',
+          description: 'BandjuPanel помогает управлять VPN, прокси, доменом, HTTPS и серверными задачами на вашем VPS через SSH — без терминала и публичной web-админки.',
+          menuFeatures: 'Возможности',
+          menuHow: 'Как это работает',
+          howVideoBadge: 'Видеообзор',
+          menuPro: 'Тарифы',
+          menuDownload: 'Скачать',
+          eyebrow: 'BandjuPanel',
+          title: 'Простое управление VPN и прокси на вашем VPS',
+          lead: 'Один интерфейс для управления VPN, прокси и серверными задачами на вашем VPS через безопасный SSH‑туннель - без терминала',
+          cta: 'Скачать'
+          ,
+          howKicker: 'Как это работает',
+          howTitle: 'Подключение к вашему VPS через безопасный SSH‑туннель.',
+          howLead: 'Чтобы начать, не нужны специальные знания и сложная настройка VPS. Установите BandjuPanel на сервер, подключитесь по SSH и управляйте всем через удобный интерфейс - без терминала',
+          step1Title: 'Добавьте VPS',
+          step1Copy: 'Укажите IP, порт и имя сервера. Приложение автоматически создаст SSH‑ключ и подключится.',
+          step2Title: 'Подключитесь по SSH',
+          step2Copy: 'Работает через SSH‑туннель - безопасное соединение без открытия портов и прямого доступа к серверу.',
+          step3Title: 'Выдавайте доступы',
+          step3Copy: 'Создавайте пользователей VPN и прокси, управляйте их доступом и получайте данные для подключения через QR/ссылку или готовый конфиг-файл.',
+          howNote: 'Напрямую с вашим сервером, без публичной админки.',
+          controlKicker: 'Контур',
+          controlTitle: 'Локальное управление через SSH без терминала',
+          controlLead: 'BandjuPanel подключается к VPS по SSH - ключи остаются у вас, данные не передаются на сторонние серверы.',
+          controlNote: 'Panel API доступен только локально на сервере.',
+          control1Title: 'Локальное приложение',
+          control1Copy: 'Управление идет из локального приложения на вашем компьютере.',
+          control2Title: 'SSH и закрытый API',
+          control2Copy: 'Подключение к серверу идет по SSH, без открытой админки в интернете.',
+          control3Title: 'Данные на вашем VPS',
+          control3Copy: 'Конфиги, сервисы и состояние панели остаются на вашем сервере.',
+          featuresKicker: 'Один экран для всего',
+          featuresTitle: 'Один интерфейс для серверов, сервисов и клиентов',
+          featuresLead: 'BandjuPanel сводит рабочие сущности в один интерфейс.',
+          featuresNote: 'Независимо от протокола, сервиса и VPS.',
+          feature1Title: 'Серверы',
+          feature1Copy: 'Сохраняйте несколько VPS-профилей и подключайтесь по SSH без повторного ввода пароля.',
+          feature2Title: 'Сервисы',
+          feature2Copy: 'Управляйте AmneziaWG, XRay, Hysteria2, MTProto, WARP, Domain, Gateway, Cascade, BBR и другими модулями.',
+          feature3Title: 'Доступы',
+          feature3Copy: 'Создавайте клиентов, выдавайте QR и ссылки, включайте и перевыпускайте доступы.',
+          feature4Title: 'Диагностика',
+          feature4Copy: 'Проверяйте Docker, контейнеры, порты, WARP и логи; Doctor помогает с типовыми сбоями.',
+          gatewayKicker: 'Домен и Gateway',
+          gatewayTitle: 'HTTPS, сайт-заглушка и XRay на 443 из одного интерфейса',
+          gatewayLead: 'BandjuPanel проверяет DNS и порты 80/443, выпускает сертификат Let\'s Encrypt и помогает запустить домен без ручной настройки nginx.',
+          gatewayNote: 'Gateway позволяет сайту и сервисам использовать стандартные веб-порты на одном VPS.',
+          gateway1Title: 'Проверка домена',
+          gateway1Copy: 'Панель сверяет DNS, IP VPS и доступность портов 80/443 перед выпуском сертификата.',
+          gateway2Title: 'Сертификат и сайт',
+          gateway2Copy: 'Можно выпустить Let\'s Encrypt сертификат и включить сайт-заглушку: выбрать встроенный дизайн или загрузить свой ZIP-сайт.',
+          gateway3Title: 'XRay через Gateway',
+          gateway3Copy: 'XRay может работать через Gateway на 443 вместе с сайтом-заглушкой, без конфликта за порт.',
+          accessKicker: 'Доступы',
+          accessTitle: 'Выдача VPN и proxy доступов без ручной сборки конфигов.',
+          accessLead: 'Создавайте подключения, выбирайте нужный протокол и передавайте доступы через QR‑код или ссылку - без ручной настройки.',
+          accessNote: 'Один список для клиентов разных сервисов.',
+          accessQrTitle: 'QR и ссылки',
+          accessQrCopy: 'После создания клиента можно сразу передать QR‑код, ссылку, конфиг или другой готовый формат подключения.',
+          accessClientsTitle: 'Клиенты и статусы',
+          accessClientsCopy: 'Редактируйте, отслеживайте активность клиентов и их подключения в реальном времени.',
+          accessProtocolsTitle: 'Разные протоколы',
+          accessProtocolsCopy: 'AmneziaWG, XRay, Hysteria2 и MTProto в одном интерфейсе.',
+          pricingKicker: 'Тарифы',
+          pricingTitle: 'Один VPS бесплатно. Несколько серверов в Pro.',
+          pricingLead: 'Free - для одного VPS. Pro - для нескольких серверов и расширенных возможностей.',
+          pricingNote: 'Оплата один раз. Без ежемесячной подписки.',
+          pricingFreeName: 'Free',
+          pricingFreePrice: '0 ₽',
+          pricingFreeSummary: 'Один VPS, до 4 доступов и базовые сценарии управления.',
+          pricingFreeCta: 'Скачать',
+          pricingProName: 'Pro Personal',
+          pricingProPrice: '1990 ₽',
+          pricingProPeriod: 'разово',
+          pricingProSummary: 'Без лимита на VPS и доступы, плюс расширенные сценарии.',
+          pricingProCta: 'Приобрести Pro',
+          pricingCompareServers: 'Серверы',
+          pricingFreeServers: '1 VPS',
+          pricingProServers: 'VPS без лимита',
+          pricingCompareAccess: 'Доступы',
+          pricingFreeAccess: 'До 4 доступов',
+          pricingProAccess: 'Доступы без лимита',
+          pricingCompareCore: 'Сервисы',
+          pricingFreeCore: 'AmneziaWG, XRay, Hysteria2, MTProto',
+          pricingProCore: 'AmneziaWG, XRay, Hysteria2, MTProto',
+          pricingCompareDiagnostics: 'Диагностика',
+          pricingFreeDiagnostics: 'Базовые логи, диагностика, Doctor как просмотр проблем',
+          pricingProDiagnostics: 'Расширенная диагностика и исправление типовых проблем',
+          pricingCompareWorkflows: 'Расширенные сценарии',
+          pricingFreeWorkflows: 'Один серверный контур',
+          pricingProWorkflows: 'Общие доступы, каскады, пресеты, резервные копии и массовые действия',
+          pricingCompareUpdates: 'Обновления',
+          pricingFreeUpdates: 'Исправления ошибок и обновления безопасности',
+          pricingProUpdates: 'Исправления ошибок и обновления безопасности',
+          finalKicker: 'Начать',
+          finalTitle: 'Начните с одного VPS - без терминала и сложной настройки',
+          finalLead: 'Установите BandjuPanel и получите доступ к управлению VPS через SSH - в удобном интерфейсе.',
+          finalDownload: 'Скачать',
+          finalPro: 'Приобрести Pro',
+          finalNote: 'Free доступен для одного VPS и до 4 доступов.',
+          footerCopy: 'Управление VPN и proxy на своем VPS через SSH.'
+        },
+        en: {
+          label: 'EN',
+          menuLabel: 'English',
+          htmlLang: 'en',
+          titleText: 'BandjuPanel - VPN and proxy management on your VPS, no terminal required',
+          description: 'BandjuPanel helps you manage VPN, proxy, domains, HTTPS, and server tasks on your VPS over SSH, without using the terminal or exposing a public web admin panel.',
+          menuFeatures: 'Features',
+          menuHow: 'How it works',
+          howVideoBadge: 'Video overview',
+          menuPro: 'Pricing',
+          menuDownload: 'Download',
+          eyebrow: 'BandjuPanel',
+          title: 'Simple VPN and proxy management on your VPS',
+          lead: 'One interface for managing VPN, proxy, and server tasks on your VPS over a secure SSH tunnel. No terminal required.',
+          cta: 'Download',
+          howKicker: 'How it works',
+          howTitle: 'Connect to your VPS through a secure SSH tunnel.',
+          howLead: 'You do not need advanced knowledge or complex VPS setup to get started. Install BandjuPanel on the server, connect over SSH, and manage everything in a clear interface without using the terminal.',
+          step1Title: 'Add a VPS',
+          step1Copy: 'Enter the IP address, port, and server name. The app creates an SSH key and connects automatically.',
+          step2Title: 'Connect over SSH',
+          step2Copy: 'BandjuPanel works through an SSH tunnel, so there is no public admin panel or open management port on the server.',
+          step3Title: 'Create access profiles',
+          step3Copy: 'Create VPN and proxy users, manage their access, and share connection details as a QR code, link, or ready-to-use config file.',
+          howNote: 'A direct connection to your server, with no public admin panel.',
+          controlKicker: 'Security model',
+          controlTitle: 'Local SSH management, no terminal required',
+          controlLead: 'BandjuPanel connects to your VPS over SSH. Your keys stay with you, and your data is not sent to third-party servers.',
+          controlNote: 'The panel API is reachable only locally on the server.',
+          control1Title: 'Local app',
+          control1Copy: 'You manage everything from the app on your computer.',
+          control2Title: 'SSH and local-only API',
+          control2Copy: 'The connection to the server goes through SSH. No admin panel is exposed to the internet.',
+          control3Title: 'Data stays on your VPS',
+          control3Copy: 'Configuration files, services, and panel state stay on your server.',
+          featuresKicker: 'One screen for everything',
+          featuresTitle: 'One interface for servers, services, and clients',
+          featuresLead: 'BandjuPanel keeps servers, services, and clients in one place.',
+          featuresNote: 'The same workflow across protocols, services, and VPS instances.',
+          feature1Title: 'Servers',
+          feature1Copy: 'Save multiple VPS profiles and reconnect over SSH without re-entering a password.',
+          feature2Title: 'Services',
+          feature2Copy: 'Manage AmneziaWG, XRay, Hysteria2, MTProto, WARP, Domain, Gateway, Cascade, BBR, and other modules.',
+          feature3Title: 'Access profiles',
+          feature3Copy: 'Create clients, share QR codes and links, enable access, and reissue credentials.',
+          feature4Title: 'Diagnostics',
+          feature4Copy: 'Check Docker, containers, ports, WARP, and logs; Doctor helps with common failures.',
+          gatewayKicker: 'Domain and Gateway',
+          gatewayTitle: 'HTTPS, placeholder site, and XRay on 443 from one interface',
+          gatewayLead: 'BandjuPanel checks DNS and ports 80/443, issues a Let\'s Encrypt certificate, and helps you launch a domain without manual nginx setup.',
+          gatewayNote: 'Gateway lets the website and services share standard web ports on one VPS.',
+          gateway1Title: 'Domain checks',
+          gateway1Copy: 'The panel checks DNS, the VPS IP, and port 80/443 availability before issuing a certificate.',
+          gateway2Title: 'Certificate and site',
+          gateway2Copy: 'Issue a Let\'s Encrypt certificate and enable a placeholder site: choose a built-in design or upload your own ZIP website.',
+          gateway3Title: 'XRay through Gateway',
+          gateway3Copy: 'XRay can run through Gateway on 443 together with the placeholder site, without competing for the port.',
+          accessKicker: 'Access profiles',
+          accessTitle: 'Create VPN and proxy access without building configs by hand.',
+          accessLead: 'Create connections, choose the protocol, and share access through a QR code or link, with no manual setup.',
+          accessNote: 'One client list across services.',
+          accessQrTitle: 'QR codes and links',
+          accessQrCopy: 'After creating a client, you can share a QR code, link, config file, or another ready-to-use connection format.',
+          accessClientsTitle: 'Clients and status',
+          accessClientsCopy: 'Edit clients and track their activity and connection status in real time.',
+          accessProtocolsTitle: 'Multiple protocols',
+          accessProtocolsCopy: 'AmneziaWG, XRay, Hysteria2, and MTProto in one interface.',
+          pricingKicker: 'Pricing',
+          pricingTitle: 'One VPS is free. Pro is for multiple servers.',
+          pricingLead: 'Free is for one VPS. Pro is for multiple servers and advanced features.',
+          pricingNote: 'One-time payment. No monthly subscription.',
+          pricingFreeName: 'Free',
+          pricingFreePrice: '$0',
+          pricingFreeSummary: 'One VPS, up to 4 access profiles, and core management workflows.',
+          pricingFreeCta: 'Download',
+          pricingProName: 'Pro Personal',
+          pricingProPrice: '$29',
+          pricingProPeriod: 'one-time',
+          pricingProSummary: 'No VPS or access-profile limits, plus advanced workflows.',
+          pricingProCta: 'Get Pro',
+          pricingCompareServers: 'Servers',
+          pricingFreeServers: '1 VPS',
+          pricingProServers: 'Unlimited VPS',
+          pricingCompareAccess: 'Access profiles',
+          pricingFreeAccess: 'Up to 4 access profiles',
+          pricingProAccess: 'Unlimited access profiles',
+          pricingCompareCore: 'Services',
+          pricingFreeCore: 'AmneziaWG, XRay, Hysteria2, MTProto',
+          pricingProCore: 'AmneziaWG, XRay, Hysteria2, MTProto',
+          pricingCompareDiagnostics: 'Diagnostics',
+          pricingFreeDiagnostics: 'Basic logs, diagnostics, and Doctor problem checks',
+          pricingProDiagnostics: 'Advanced diagnostics and fixes for common issues',
+          pricingCompareWorkflows: 'Advanced workflows',
+          pricingFreeWorkflows: 'One server setup',
+          pricingProWorkflows: 'Cross-server access management, cascades, presets, backups, and bulk actions',
+          pricingCompareUpdates: 'Updates',
+          pricingFreeUpdates: 'Bug fixes and security updates',
+          pricingProUpdates: 'Bug fixes and security updates',
+          finalKicker: 'Start',
+          finalTitle: 'Start with one VPS, no terminal or complex setup',
+          finalLead: 'Install BandjuPanel and manage your VPS over SSH from a clear interface.',
+          finalDownload: 'Download',
+          finalPro: 'Get Pro',
+          finalNote: 'Free is available for one VPS and up to 4 access profiles.',
+          footerCopy: 'VPN and proxy management on your VPS over SSH.'
+        }
+      };
+
+      const titleElement = document.querySelector('title');
+      const descriptionElement = document.querySelector('meta[name="description"]');
+      const translatableNodes = document.querySelectorAll('[data-i18n]');
+      const headerShell = document.querySelector('.header-shell');
+      const header = document.querySelector('.header');
+      const langSwitch = document.querySelector('.lang-switch');
+      const langTrigger = document.querySelector('.lang-trigger');
+      const langMenu = document.getElementById('lang-menu');
+      const langCurrent = document.querySelector('[data-lang-current]');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const siteMenu = document.querySelector('.menu');
+
+      const normalizeLang = (value) => (value === 'en' ? 'en' : 'ru');
+
+      const renderLanguageOptions = (activeLang) => {
+        if (!langMenu) return;
+
+        langMenu.innerHTML = '';
+
+        Object.entries(translations).forEach(([lang, dictionary]) => {
+          const option = document.createElement('button');
+          option.type = 'button';
+          option.className = `lang-option${lang === activeLang ? ' is-active' : ''}`;
+          option.setAttribute('role', 'menuitemradio');
+          option.setAttribute('aria-checked', lang === activeLang ? 'true' : 'false');
+          option.dataset.langOption = lang;
+          option.innerHTML = `<span>${dictionary.menuLabel}</span><span class="lang-option-check" aria-hidden="true">✓</span>`;
+          langMenu.appendChild(option);
+        });
+      };
+
+      const setMenuOpen = (isOpen) => {
+        if (!langTrigger || !langMenu) return;
+        langTrigger.classList.toggle('is-open', isOpen);
+        langTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        langMenu.classList.toggle('is-open', isOpen);
+      };
+
+      const setSiteMenuOpen = (isOpen) => {
+        if (!header || !menuToggle) return;
+        header.classList.toggle('is-menu-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        window.requestAnimationFrame(syncHeaderShellHeight);
+      };
+
+      const syncHeaderShellHeight = () => {
+        if (!headerShell || !header) return;
+        headerShell.style.height = `${header.offsetHeight}px`;
+      };
+
+      const applyLanguage = (language, syncUrl = true) => {
+        const lang = normalizeLang(language);
+        const dictionary = translations[lang];
+
+        document.documentElement.lang = dictionary.htmlLang;
+        if (titleElement) titleElement.textContent = dictionary.titleText;
+        if (descriptionElement) descriptionElement.setAttribute('content', dictionary.description);
+        if (langCurrent) langCurrent.textContent = dictionary.label;
+
+        translatableNodes.forEach((node) => {
+          const key = node.getAttribute('data-i18n');
+          if (key && dictionary[key]) {
+            node.textContent = dictionary[key];
+          }
+        });
+
+        renderLanguageOptions(lang);
+
+        try {
+          window.localStorage.setItem('bandju-site-lang', lang);
+        } catch (_) {}
+
+        if (syncUrl) {
+          const url = new URL(window.location.href);
+          if (lang === 'ru') {
+            url.searchParams.delete('lang');
+          } else {
+            url.searchParams.set('lang', lang);
+          }
+          window.history.replaceState({}, '', url);
+        }
+
+        window.requestAnimationFrame(syncHeaderShellHeight);
+      };
+
+      const languageRoutes = {
+        ru: '/',
+        en: '/en/'
+      };
+
+      const normalizePath = (path) => (path.endsWith('/') ? path : `${path}/`);
+      const initialLanguage = normalizePath(window.location.pathname) === languageRoutes.en ? 'en' : 'ru';
+
+      const navigateToLanguage = (language) => {
+        const lang = normalizeLang(language);
+
+        try {
+          window.localStorage.setItem('bandju-site-lang', lang);
+        } catch (_) {}
+
+        const targetPath = languageRoutes[lang] || languageRoutes.ru;
+        const targetUrl = `${targetPath}${window.location.hash || ''}`;
+
+        if (normalizePath(window.location.pathname) !== targetPath) {
+          window.location.href = targetUrl;
+          return;
+        }
+
+        applyLanguage(lang, false);
+      };
+
+      applyLanguage(initialLanguage, false);
+
+      if (header) {
+        let stickyTicking = false;
+
+        const updateStickyHeader = () => {
+          header.classList.toggle('is-stuck', window.scrollY > 200);
+        };
+
+        syncHeaderShellHeight();
+        updateStickyHeader();
+
+        window.addEventListener('scroll', () => {
+          if (stickyTicking) return;
+          stickyTicking = true;
+          window.requestAnimationFrame(() => {
+            stickyTicking = false;
+            updateStickyHeader();
+          });
+        }, { passive: true });
+
+        window.addEventListener('resize', syncHeaderShellHeight, { passive: true });
+
+        if (typeof ResizeObserver !== 'undefined') {
+          const headerResizeObserver = new ResizeObserver(() => {
+            syncHeaderShellHeight();
+          });
+          headerResizeObserver.observe(header);
+        }
+      }
+
+      if (langTrigger && langMenu) {
+        langTrigger.addEventListener('click', () => {
+          setMenuOpen(!langMenu.classList.contains('is-open'));
+          setSiteMenuOpen(false);
+        });
+
+        langMenu.addEventListener('click', (event) => {
+          const button = event.target.closest('[data-lang-option]');
+          if (!button) return;
+          navigateToLanguage(button.dataset.langOption);
+          setMenuOpen(false);
+        });
+
+        document.addEventListener('click', (event) => {
+          if (langSwitch && !langSwitch.contains(event.target)) {
+            setMenuOpen(false);
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            setMenuOpen(false);
+          }
+        });
+      }
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener('click', () => {
+          setSiteMenuOpen(!header.classList.contains('is-menu-open'));
+          setMenuOpen(false);
+        });
+
+        siteMenu.addEventListener('click', (event) => {
+          if (event.target.closest('.menu-link')) {
+            setSiteMenuOpen(false);
+          }
+        });
+
+        document.addEventListener('click', (event) => {
+          if (header && !header.contains(event.target)) {
+            setSiteMenuOpen(false);
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            setSiteMenuOpen(false);
+          }
+        });
+      }
+
+      document.querySelectorAll('[data-video-card]').forEach((card) => {
+        const video = card.querySelector('video');
+        const overlay = card.querySelector('[data-video-play]');
+        if (!video || !overlay) return;
+
+        const hideOverlay = () => {
+          card.classList.add('is-playing');
+          overlay.hidden = true;
+        };
+
+        overlay.addEventListener('click', async () => {
+          try {
+            await video.play();
+            hideOverlay();
+            video.focus({ preventScroll: true });
+          } catch (_) {}
+        });
+
+        video.addEventListener('play', hideOverlay);
+      });
+
+      const page = document.querySelector('.page');
+      if (!page) return;
+
+      const hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)');
+      const motionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!hoverMedia.matches || motionMedia.matches) return;
+
+      const leftShapePoints = [
+        [0, 1],
+        [0, 0.72],
+        [0.10, 0.56],
+        [0.22, 0.40],
+        [0.38, 0.26],
+        [0.56, 0.16],
+        [0.72, 0.12],
+        [0.88, 0.18],
+        [1, 0.30],
+        [1, 1]
+      ];
+
+      const centerShapePoints = [
+        [0, 1],
+        [0, 0.66],
+        [0.18, 0.50],
+        [0.38, 0.38],
+        [0.62, 0.38],
+        [0.82, 0.50],
+        [1, 0.66],
+        [1, 1]
+      ];
+
+      const pointInPolygon = (x, y, polygon) => {
+        let inside = false;
+        for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+          const xi = polygon[i][0];
+          const yi = polygon[i][1];
+          const xj = polygon[j][0];
+          const yj = polygon[j][1];
+
+          const intersect =
+            yi > y !== yj > y &&
+            x < ((xj - xi) * (y - yi)) / ((yj - yi) || 1e-6) + xi;
+
+          if (intersect) inside = !inside;
+        }
+        return inside;
+      };
+
+      const buildPolygon = (rect, points, mirror = false) =>
+        points.map(([px, py]) => [
+          rect.x + rect.width * (mirror ? 1 - px : px),
+          rect.y + rect.height * py
+        ]);
+
+      const setupInteractivePattern = ({
+        root,
+        onActivate,
+        leftHeight,
+        centerHeight,
+        baseAlpha = 0.20,
+        alphaBoost = 0.44,
+        maxAlpha = 0.76,
+        influenceRadius = 120
+      }) => {
+        if (!root) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.className = 'pattern-canvas';
+        root.appendChild(canvas);
+        onActivate?.();
+
+        const context = canvas.getContext('2d');
+        if (!context) return;
+
+        const pointer = {
+          active: false,
+          x: 0,
+          y: 0
+        };
+
+        let dots = [];
+        let polygons = [];
+        let rafId = 0;
+
+        const getLeftHeight = (width, height) =>
+          Math.min(height, typeof leftHeight === 'function' ? leftHeight(width, height) : leftHeight);
+
+        const getCenterHeight = (width, height) =>
+          Math.min(height, typeof centerHeight === 'function' ? centerHeight(width, height) : centerHeight);
+
+        const render = () => {
+          const rect = root.getBoundingClientRect();
+          const width = rect.width;
+          const height = rect.height;
+
+          context.clearRect(0, 0, width, height);
+
+          const baseRadius = width < 900 ? 1.65 : 1.9;
+
+          for (const dot of dots) {
+            let radius = baseRadius;
+            let alpha = baseAlpha;
+
+            if (pointer.active) {
+              const dx = dot.x - pointer.x;
+              const dy = dot.y - pointer.y;
+              const distance = Math.hypot(dx, dy);
+
+              if (distance < influenceRadius) {
+                const t = 1 - distance / influenceRadius;
+                radius += 3 * t * t;
+                alpha += alphaBoost * t * t;
+              }
+            }
+
+            context.beginPath();
+            context.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
+            context.fillStyle = `rgba(16, 17, 20, ${Math.min(alpha, maxAlpha)})`;
+            context.fill();
+          }
+        };
+
+        const buildScene = () => {
+          const rect = root.getBoundingClientRect();
+          const width = rect.width;
+          const height = rect.height;
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          const resolvedLeftHeight = getLeftHeight(width, height);
+          const resolvedCenterHeight = getCenterHeight(width, height);
+
+          canvas.width = Math.round(width * dpr);
+          canvas.height = Math.round(height * dpr);
+          canvas.style.width = `${width}px`;
+          canvas.style.height = `${height}px`;
+
+          context.setTransform(dpr, 0, 0, dpr, 0, 0);
+          context.clearRect(0, 0, width, height);
+
+          const sideWidth = Math.min(width * 0.54, 820);
+          const leftRect = {
+            x: -width * 0.02,
+            y: height - resolvedLeftHeight,
+            width: sideWidth,
+            height: resolvedLeftHeight
+          };
+
+          const rightRect = {
+            x: width - sideWidth + width * 0.02,
+            y: height - resolvedLeftHeight,
+            width: sideWidth,
+            height: resolvedLeftHeight
+          };
+
+          const centerWidth = Math.min(width * 0.30, 420);
+          const centerRect = {
+            x: (width - centerWidth) / 2,
+            y: height - resolvedCenterHeight,
+            width: centerWidth,
+            height: resolvedCenterHeight
+          };
+
+          polygons = [
+            buildPolygon(leftRect, leftShapePoints),
+            buildPolygon(centerRect, centerShapePoints),
+            buildPolygon(rightRect, leftShapePoints, true)
+          ];
+
+          dots = [];
+          const spacing = width < 900 ? 17 : 15;
+          const startY = Math.max(0, height - resolvedLeftHeight);
+
+          for (let y = startY; y <= height; y += spacing) {
+            for (let x = 0; x <= width; x += spacing) {
+              if (polygons.some((polygon) => pointInPolygon(x, y, polygon))) {
+                dots.push({ x, y });
+              }
+            }
+          }
+
+          render();
+        };
+
+        const queueRender = () => {
+          if (rafId) return;
+          rafId = window.requestAnimationFrame(() => {
+            rafId = 0;
+            render();
+          });
+        };
+
+        const hidePointer = () => {
+          pointer.active = false;
+          queueRender();
+        };
+
+        window.addEventListener('pointermove', (event) => {
+          const rect = root.getBoundingClientRect();
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+
+          pointer.x = x;
+          pointer.y = y;
+          pointer.active = x >= 0 && x <= rect.width && y >= 0 && y <= rect.height;
+          queueRender();
+        }, { passive: true });
+
+        document.addEventListener('mouseleave', hidePointer);
+        window.addEventListener('blur', hidePointer);
+        window.addEventListener('resize', buildScene, { passive: true });
+
+        buildScene();
+      };
+
+      const setupControlOrbitPattern = (root) => {
+        if (!root) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.className = 'pattern-canvas';
+        root.appendChild(canvas);
+
+        const context = canvas.getContext('2d');
+        if (!context) return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        let rings = [];
+        let frameId = 0;
+
+        const wrapAngleDistance = (a, b) => {
+          const tau = Math.PI * 2;
+          const delta = Math.abs(a - b) % tau;
+          return Math.min(delta, tau - delta);
+        };
+
+        const arcInfluence = (angle, center, spread) => {
+          const distance = wrapAngleDistance(angle, center);
+          return Math.exp(-((distance * distance) / (2 * spread * spread)));
+        };
+
+        const render = (timestamp = 0) => {
+          const rect = root.getBoundingClientRect();
+          const width = rect.width;
+          const height = rect.height;
+
+          context.clearRect(0, 0, width, height);
+
+          const reducedMotion = prefersReducedMotion.matches;
+          const shouldAnimate = !reducedMotion && !document.hidden;
+          const time = reducedMotion ? 0 : timestamp;
+
+          for (const ring of rings) {
+            const rotation = ring.phase + time * ring.speed;
+
+            for (let index = 0; index < ring.count; index += 1) {
+              const angle = rotation + (index / ring.count) * Math.PI * 2;
+              const x = ring.cx + Math.cos(angle) * ring.radius;
+              const y = ring.cy + Math.sin(angle) * ring.radius;
+
+              const primaryArc = arcInfluence(angle, ring.primaryArc, ring.arcSpread);
+              const secondaryArc = arcInfluence(angle, ring.secondaryArc, ring.arcSpread * 0.92);
+              const emphasis = Math.max(primaryArc, secondaryArc * 0.94);
+              const radius = ring.baseSize + ring.sizeBoost * emphasis * emphasis;
+              const alpha = Math.min(ring.baseAlpha + ring.alphaBoost * emphasis, 0.62);
+
+              context.beginPath();
+              context.arc(x, y, radius, 0, Math.PI * 2);
+              context.fillStyle = `rgba(16, 17, 20, ${alpha})`;
+              context.fill();
+            }
+          }
+
+          if (shouldAnimate) {
+            frameId = window.requestAnimationFrame(render);
+          }
+        };
+
+        const buildScene = () => {
+          const rect = root.getBoundingClientRect();
+          const width = rect.width;
+          const height = rect.height;
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+          canvas.width = Math.round(width * dpr);
+          canvas.height = Math.round(height * dpr);
+          canvas.style.width = `${width}px`;
+          canvas.style.height = `${height}px`;
+
+          context.setTransform(dpr, 0, 0, dpr, 0, 0);
+          context.clearRect(0, 0, width, height);
+
+          const size = Math.min(width, height);
+          const ringCount = width < 900 ? 5 : 6;
+          const centerX = width * 0.5;
+          const centerY = height * 0.5;
+          const outerRadius = size * (width < 900 ? 0.43 : 0.44);
+          const ringGap = size * (width < 900 ? 0.055 : 0.048);
+          const primaryArc = Math.PI * 1.24;
+          const secondaryArc = Math.PI * 0.24;
+
+          rings = Array.from({ length: ringCount }, (_, index) => {
+            const radius = outerRadius - index * ringGap;
+            const circumference = Math.PI * 2 * radius;
+            const spacing = width < 900 ? 15.5 : 16.5;
+            const count = Math.max(44, Math.round(circumference / spacing));
+            const normalizedIndex = index / Math.max(ringCount - 1, 1);
+
+            return {
+              cx: centerX,
+              cy: centerY,
+              radius,
+              count,
+              phase: index * 0.16,
+              speed: 0.000085 + index * 0.000008,
+              primaryArc,
+              secondaryArc,
+              arcSpread: 0.34 + normalizedIndex * 0.05,
+              baseSize: width < 900 ? 2.85 + normalizedIndex * 0.12 : 3.2 + normalizedIndex * 0.14,
+              sizeBoost: width < 900 ? 1.25 + normalizedIndex * 0.42 : 1.45 + normalizedIndex * 0.5,
+              baseAlpha: 0.055 + normalizedIndex * 0.012,
+              alphaBoost: 0.28 + normalizedIndex * 0.035
+            };
+          });
+
+          if (frameId) {
+            window.cancelAnimationFrame(frameId);
+            frameId = 0;
+          }
+
+          render();
+        };
+
+        const handleVisibilityChange = () => {
+          if (document.hidden || prefersReducedMotion.matches) {
+            if (frameId) {
+              window.cancelAnimationFrame(frameId);
+              frameId = 0;
+            }
+            render();
+            return;
+          }
+
+          if (!frameId) {
+            frameId = window.requestAnimationFrame(render);
+          }
+        };
+
+        window.addEventListener('resize', buildScene, { passive: true });
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        if (typeof prefersReducedMotion.addEventListener === 'function') {
+          prefersReducedMotion.addEventListener('change', buildScene);
+        } else if (typeof prefersReducedMotion.addListener === 'function') {
+          prefersReducedMotion.addListener(buildScene);
+        }
+
+        buildScene();
+      };
+
+      setupInteractivePattern({
+        root: document.querySelector('.pattern'),
+        onActivate: () => page.classList.add('pattern-interactive'),
+        leftHeight: (width, height) => (width < 900 ? Math.min(height, 220) : Math.min(height, 320)),
+        centerHeight: (width, height) => (width < 900 ? Math.min(height, 100) : Math.min(height, 148))
+      });
+
+      setupInteractivePattern({
+        root: document.querySelector('.pricing-pattern'),
+        onActivate: () => document.querySelector('.pricing-pattern')?.classList.add('is-interactive'),
+        leftHeight: (width, height) => height,
+        centerHeight: (width, height) => Math.min(height, width < 900 ? 110 : 158),
+        baseAlpha: 0.18,
+        alphaBoost: 0.42,
+        maxAlpha: 0.72,
+        influenceRadius: 130
+      });
+
+      setupControlOrbitPattern(document.querySelector('.control-pattern'));
+    })();
+  </script>
+  </body></html>

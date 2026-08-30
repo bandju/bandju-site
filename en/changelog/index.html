@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changelog - BandjuPanel</title>
+  <meta name="description" content="BandjuPanel changelog: new features, fixes, and improvements by version.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://bandju.app/en/changelog/">
+  <link rel="alternate" hreflang="ru" href="https://bandju.app/changelog/">
+  <link rel="alternate" hreflang="en" href="https://bandju.app/en/changelog/">
+  <link rel="alternate" hreflang="x-default" href="https://bandju.app/changelog/">
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/fav-bandju.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BandjuPanel">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:title" content="Changelog - BandjuPanel">
+  <meta property="og:description" content="BandjuPanel changelog: new features, fixes, and improvements by version.">
+  <meta property="og:url" content="https://bandju.app/en/changelog/">
+  <meta property="og:image" content="https://bandju.app/assets/ogimage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/assets/site.css?v=a320afef41">
+  </head>
+  <body class="site-page site-changelog site-lang-en">
+    <main class="page">
+      <!-- shared-header:start --><div class="header-shell">
+  <header class="header">
+    <a class="brand" href="/en/" aria-label="BandjuPanel">
+      <img src="/assets/brand/logo-bandju.svg" alt="BandjuPanel" width="200" height="29">
+    </a>
+    <div class="header-actions">
+      <nav class="menu" id="site-menu" aria-label="Main menu">
+        <a class="menu-link" href="/en/#features">Features</a>
+        <span class="menu-divider" aria-hidden="true">•</span>
+        <a class="menu-link" href="/en/#pricing">Pricing</a>
+        <span class="menu-divider" aria-hidden="true">•</span>
+        <a class="menu-link" href="/en/changelog/">Updates</a>
+        <span class="menu-divider" aria-hidden="true">•</span>
+        <a class="menu-link" href="/en/pro/">Pro Personal</a>
+        <span class="menu-divider" aria-hidden="true">•</span>
+        <a class="menu-link" href="/en/download/">Download</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu">
+          <span data-lang-current>EN</span>
+          <span class="lang-trigger-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none">
+              <path d="M3 4.5 6 7.5 9 4.5"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" aria-label="Select language">
+          <a class="lang-option" href="/changelog/" role="menuitemradio" aria-checked="false" hreflang="ru">
+              <span>Русский</span>
+              <span class="lang-option-check" aria-hidden="true">✓</span>
+            </a><a class="lang-option is-active" href="/en/changelog/" role="menuitemradio" aria-checked="true" hreflang="en">
+              <span>English</span>
+              <span class="lang-option-check" aria-hidden="true">✓</span>
+            </a>
+        </div>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="site-menu" aria-label="Open menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+</div>
+<!-- shared-header:end -->
+      
+    <section class="section hero" aria-labelledby="changelog-title">
+      <p class="eyebrow">Updates</p>
+      <h1 id="changelog-title">BandjuPanel changelog</h1>
+      <p class="lead">Public release history by version.</p>
+      <a class="button" href="/en/download/">Download</a>
+    </section>
+
+    <section class="section release-list" aria-label="BandjuPanel changelog">
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.8.0</p>
+            <span class="release-latest">Latest release</span>
+          </div>
+          <ul class="release-notes">
+            <li>Added a new Backups section for saving services, settings, and accesses to a local file.</li>
+            <li>A clean VPS can be fully restored, while a configured VPS can safely import accesses without overwriting its current settings.</li>
+            <li>Before restoring, panel shows a detailed plan and checks compatibility, missing services, ports, domain, and DNS.</li>
+            <li>Added VPS-to-VPS migration: IP and domain settings are adapted, while connections that need a new config or rebinding are marked separately.</li>
+            <li>Updated AmneziaWG v3 to version 3.1.</li>
+            <li>Added domain endpoints for AmneziaWG legacy, v2, and v3, with DNS validation and backup support.</li>
+            <li>Updated Hysteria2 to version 2.12.2 and improved the reliability of tests, WARP, and background state refreshes.</li>
+            <li>Migrated Cascade to AmneziaWG 3.1, improved automatic tunnel recovery, and added VPS resource and connection-capacity checks.</li>
+            <li>Fixed access sorting by aggregate traffic and made background list refreshes faster without unnecessary VPS load.</li>
+            <li>Hysteria2 technical logins are now labeled explicitly so they are not mistaken for IP addresses.</li>
+            <li>Improved launcher recovery after temporary connection failures and clarified launcher and panel update states.</li>
+            <li>Added safe VPS storage maintenance to limit log growth and clean up old unused cache data.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.7.0</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Added a dark theme and refreshed the app appearance, including integrated window chrome.</li>
+            <li>Separated launcher and panel updates, with each component's status shown independently.</li>
+            <li>Added AmneziaWG 3.0 support for compatible clients.</li>
+            <li>Added advanced XHTTP settings for Xray and Salamander obfuscation settings for Hysteria2.</li>
+            <li>Added subscription connection ordering controls.</li>
+            <li>Made success notifications more prominent and added clear access icons to Hysteria2 links.</li>
+            <li>Expanded VPS diagnostics with external reachability checks and IP and service region detection.</li>
+            <li>Improved license recovery guidance and transfer confirmation reliability.</li>
+            <li>Fixed ingress IP detection behind Cascade and MTProto and Gateway lifecycle handling.</li>
+            <li>Improved panel background checks and update handling.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.6.2</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Launcher updates are now available directly in the app on Windows and macOS. After installing 1.6.2, future versions can be installed without replacing the app manually.</li>
+            <li>Settings, saved VPS servers, and the license remain intact during updates.</li>
+            <li>Launcher and panel can now be updated independently, so an unchanged component does not need to be reinstalled.</li>
+            <li>Improved license system protection and stability.</li>
+            <li>Improved panel installation and update reliability during temporary external source outages.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.6.1</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>The launcher now verifies that the open SSH tunnel belongs to the selected VPS before installing or updating panel.</li>
+            <li>Improved stale SSH tunnel cleanup on Windows; if the local port is occupied by another process, the launcher safely stops the operation and shows clear guidance.</li>
+            <li>The launcher automatically repairs overly broad file permissions on SSH keys it created in Windows without replacing the keys. Imported custom keys remain unchanged.</li>
+            <li>Added clear diagnostics for the known SSH incompatibility with Ubuntu 26.04 and guidance to use Ubuntu 22.04 or 24.04 LTS.</li>
+            <li>Fixed source VPS detection for external connections after a server is renamed or added again.</li>
+            <li>When a match is ambiguous, the launcher no longer selects a source VPS automatically, preventing the operation from running on another server.</li>
+            <li>Doctor no longer shows an incorrect warning about outdated XRay links after connection settings change.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.6.0</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Bandju Panel now supports Hysteria2, a fast UDP/QUIC proxy protocol designed for unstable networks with packet loss and high latency. It helps maintain speed where conventional TCP connections lose significant performance and disguises the connection as standard HTTP/3 traffic.</li>
+            <li>Hysteria2 can use a direct route, WARP, or Cascade. Hysteria2 connections from external VPS servers can also be added to shared Bandju subscriptions.</li>
+            <li>Hysteria2 can now be routed through Cascade.</li>
+            <li>Improved the stability of Cascade startup and switching between Direct and WARP.</li>
+            <li>If switching fails, Bandju Panel attempts to restore the previous mode automatically.</li>
+            <li>Improved recovery after a temporary SSH connection loss.</li>
+            <li>Improved reliable Cascade shutdown and removal on both VPS servers.</li>
+            <li>Improved the Test action for AmneziaWG and XRay.</li>
+            <li>The test creates a temporary connection on the VPS and measures download and upload speeds separately.</li>
+            <li>Results now show the handshake, latency, and actual traffic route: direct or through WARP.</li>
+            <li>Added an AmneziaVPN connection key in vpn:// format.</li>
+            <li>AmneziaWG configurations can now be imported into the official AmneziaVPN app using a QR code or connection key.</li>
+            <li>Standard .conf file export remains available for other compatible clients.</li>
+            <li>Updated the AmneziaWG and XRay icons.</li>
+            <li>Added protocol color coding to access and subscription lists.</li>
+            <li>Improved access filters: transport and source server can now be selected independently.</li>
+            <li>Filters are more compact and show the number of active conditions.</li>
+            <li>TLS Scanner now recovers automatically after a temporary local port conflict, and its status can be checked again.</li>
+            <li>Fixed SSH on Windows when SSH file paths contain spaces or special characters.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.5.3</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Fixed an issue where an unavailable update server could block connecting to a healthy panel on a VPS.</li>
+            <li>Added fallback update sources for cases where the primary source is blocked or temporarily unavailable.</li>
+            <li>Improved update-check compatibility with antivirus software, proxies, and Windows system certificates.</li>
+            <li>Update checks now run separately and no longer interfere with working with an already installed panel.</li>
+            <li>Added protected update-data verification and more reliable switching between update sources.</li>
+            <li>Fixed Cascade on VPS servers where SSH uses a non-root user with passwordless sudo.</li>
+            <li>Cascade no longer requires manually adding the user to the Docker group or enabling root SSH login when passwordless sudo is available on the VPS.</li>
+            <li>Cascade permission errors now show a clear message instead of low-level Docker or panel response parsing errors.</li>
+            <li>Panel was updated to version 1.5.3 for a compatible release; existing VPS settings and client accesses are preserved.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.5.2</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Added HAPP routing support for subscription links.</li>
+            <li>A subscription can now include a separate HAPP routing link, and HAPP receives routing rules through the routing HTTP header when the subscription is added or updated.</li>
+            <li>The public subscription page now shows when HAPP routing is enabled.</li>
+            <li>Launcher can now install and update panel not only as root, but also through a user with passwordless sudo.</li>
+            <li>VPS checks now show root/sudo access status and explain more clearly why installation is unavailable without root or passwordless sudo.</li>
+            <li>XRay and AmneziaWG access creation is more reliable on slow VPS servers.</li>
+            <li>If a VPS created an access but responded too late, launcher now tries to find the created access and open its QR, config, or link automatically.</li>
+            <li>XRay and AmneziaWG client list refreshes now tolerate slow VPS responses better.</li>
+            <li>Improved Cascade startup reliability on slow VPS servers and Docker configurations where the firewall backend is not detected directly.</li>
+            <li>After enabling Cascade, launcher checks that panel remains reachable on Entry and Exit VPS servers and automatically disables Cascade if reachability is not confirmed.</li>
+            <li>Cascade checks now wait longer for slow VPS servers and explain more clearly when the tunnel works but ping/ICMP is unavailable.</li>
+            <li>Fixed applying advanced AmneziaWG settings to client configs.</li>
+            <li>MTU, DNS, and I1 values configured in panel now correctly appear in new and reissued client configs.</li>
+            <li>Client DNS can now be configured manually; panel validates the format and prevents saving an invalid address list.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.5.1</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Reduced background panel load on VPS servers while idle.</li>
+            <li>Optimized access, subscription, and limit state refreshes so unnecessary heavy checks are avoided.</li>
+            <li>Reduced short CPU spikes when checking limits, accesses, and subscriptions.</li>
+            <li>Improved subscription compatibility with Hiddify, Happ, and other apps that support subscription data.</li>
+            <li>Compatible apps now show the subscription name, expiration, used traffic, and subscription page link.</li>
+            <li>Compatible apps now use the subscription's own name without adding the Bandju Panel name.</li>
+            <li>Added the default caption: &quot;Подписка создана в BandjuPanel&quot;.</li>
+            <li>The subscription rename window now includes fields for a custom caption and Telegram link.</li>
+            <li>When subscription limits are hidden, they are also omitted from compatible app data.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.5.0</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>A single subscription can now include XRay accesses from multiple VPS servers.</li>
+            <li>The subscription window now has a &quot;+ Server&quot; button for choosing accesses from another saved VPS.</li>
+            <li>Accesses from other VPS servers appear together with regular accesses: in the main table and inside the subscription.</li>
+            <li>These accesses show which server they came from. The server badge can quickly switch to the source VPS after confirmation.</li>
+            <li>Familiar actions work for accesses from other VPS servers: QR/link, rename, icon change, enable/disable, key or URL reset, WARP, and delete.</li>
+            <li>When deleting, choose whether to remove the access on the source VPS or only remove it from the current subscription.</li>
+            <li>Improved drag and drop between subscriptions, including accesses from other VPS servers.</li>
+            <li>The access list is clearer: subscriptions appear first, child accesses stay near their parent subscription, and accesses from other VPS servers are grouped by server.</li>
+            <li>Added &quot;In subscription&quot; and &quot;External accesses&quot; filters.</li>
+            <li>The shared subscription limit now works for subscriptions that include accesses from multiple VPS servers.</li>
+            <li>Panel sums traffic across all accesses inside the subscription and applies the shared limit to the whole subscription.</li>
+            <li>Accesses inside a subscription inherit its limit. Separate limits remain for standalone accesses outside subscriptions.</li>
+            <li>When an access is added to a subscription, its previous individual limit no longer interferes with the shared subscription limit.</li>
+            <li>If an access is already used in a subscription on another VPS, its local limit on the source server cannot be changed separately.</li>
+            <li>When a limit is exhausted, accesses are blocked by limit state without turning off the regular toggles.</li>
+            <li>Fixed blocking of accesses from other VPS servers when traffic or expiration limits are reached.</li>
+            <li>Old access traffic is no longer charged to a new subscription after adding the access to a subscription that is already limited.</li>
+            <li>Limit changes now appear in the interface faster.</li>
+            <li>The browser subscription page now works correctly with accesses from multiple VPS servers.</li>
+            <li>The page accounts for traffic, activity, and limit state for every access inside the subscription.</li>
+            <li>The limit is shown only on the subscription itself, without repeating it on every child access.</li>
+            <li>Improved display of total traffic and restrictions for subscriptions assembled from multiple VPS servers.</li>
+            <li>Added manual VPS diagnostics to the launcher.</li>
+            <li>It helps identify where the problem is: local computer, SSH connection, authorization, Docker, panel, or API.</li>
+            <li>It checks VPS connectivity, SSH, keys, known_hosts, local tunnel port, server state, Docker, panel container, and Panel API.</li>
+            <li>After the check, a short support report can be copied.</li>
+            <li>Passwords and private keys are not included in the report.</li>
+            <li>Diagnostics run only manually and do not change the computer or VPS.</li>
+            <li>Improved synchronization of accesses between VPS servers: rename, WARP, enable, and disable states are reflected more reliably in the launcher.</li>
+            <li>One access can now belong to only one subscription, even when subscriptions are on different VPS servers.</li>
+            <li>If an external VPS is temporarily unavailable, the launcher keeps the last known status and refreshes it when the server is reachable again.</li>
+            <li>The Accesses section opens faster and refreshes more reliably when switching VPS servers.</li>
+            <li>Quick actions in the access list are more reliable, especially when enabling or disabling multiple rows quickly.</li>
+            <li>Improved WARP toggles, including AmneziaWG and accesses from other VPS servers.</li>
+            <li>The dashboard opens faster and refreshes VPS status more reliably.</li>
+            <li>Improved resource display and CPU hints.</li>
+            <li>Added an &quot;About&quot; window with versions and official Bandju Panel contacts.</li>
+            <li>The launcher now checks more precisely which features are supported by panel on a specific VPS.</li>
+            <li>If panel on a server is outdated, the launcher blocks only actions unsupported by that server and shows a hint to update panel.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.4.0</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Added the SSH Access module for managing VPS SSH keys directly from Bandju Panel.</li>
+            <li>VPS settings can now select the SSH key used for connection, create a new key, copy a public key, rename a key, or delete a private key.</li>
+            <li>If the selected SSH key is not accepted by the server, the launcher offers password login and helps update SSH access.</li>
+            <li>Improved SSH key handling on Windows and clearer errors for unsupported key files.</li>
+            <li>Added access limits: set a traffic limit and expiration date for an entire Access/subscription or for an individual connection.</li>
+            <li>Access is automatically blocked when the traffic limit or expiration date is reached, and manual disabling no longer conflicts with automatic blocking.</li>
+            <li>Subscription pages now show access limits, with an option to hide them.</li>
+            <li>Improved AmneziaWG configs after server port or settings changes.</li>
+            <li>Bandju Panel no longer requires manually refreshing each AmneziaWG config: the current QR code and .conf are returned when opening QR, downloading the config, or opening the subscription page.</li>
+            <li>Reopening an AmneziaWG QR is faster, and an old QR code should no longer briefly appear before the current one.</li>
+            <li>Doctor no longer performs bulk AmneziaWG config fixes or creates extra VPS load.</li>
+            <li>Improved interface resilience during long requests, temporary VPS check failures, and local SSH tunnel disconnects.</li>
+            <li>The dashboard now makes stale data clearer after a VPS reboot, reconnect, or tunnel loss.</li>
+            <li>Fixed cases where auto-refresh did not restart after panel updates, reconnects, or server switches.</li>
+            <li>In Lite mode, the access list should no longer stay empty after reconnecting to a server.</li>
+            <li>Fixed Cascade on Exit VPS hosts with non-standard network interface names.</li>
+            <li>Improved switching an active Entry VPS from one Exit VPS to another: the new Exit is saved correctly and stale data from the previous Exit is cleared after disconnecting.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.3.1</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Fixed server switching on Windows: the launcher now clears stale local SSH tunnels so the selected VPS and the opened panel stay in sync.</li>
+            <li>Grouped access child rows in Accesses now use slightly larger text for better readability.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.3.0</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Accesses have been redesigned around subscriptions: multiple XRay transports and AmneziaWG can be combined into one logical access.</li>
+            <li>Added stable public subscription links: /s/..., /raw, and /b64 for import into compatible clients.</li>
+            <li>The public subscription page now shows QR codes, links, traffic, AmneziaWG configs, .conf downloads, and app links for connecting.</li>
+            <li>Added access icons and flags: they are stored separately from names, shown in the list, and included in VLESS links for compatible clients.</li>
+            <li>Fixed flag rendering on Windows in the launcher and on browser subscription pages.</li>
+            <li>Accesses now support traffic period selection: total, day, week, month, and custom range.</li>
+            <li>Improved bulk actions, subscription drag and drop, filters, modals, row sync, and stale response protection.</li>
+            <li>Direct XRay links and AmneziaWG configs are easier to access from the unified Access modal.</li>
+            <li>Fixed dashboard load indicator rendering on Windows.</li>
+            <li>Improved Domain/Gateway startup recovery when the service starts slower than the first request.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.2.1</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Improved Cascade stability after VPS reboot, Entry/Exit switching, and Direct/WARP changes.</li>
+            <li>MTProto now stays separate from Cascade and is not affected when cascade is enabled for AmneziaWG/XRay.</li>
+            <li>MTProto installation is faster and more reliable: the runtime is pulled as a ready Docker image instead of being compiled on each VPS.</li>
+            <li>Added MTProto protection by unique IP count with the default limit set to 1000 to reduce VPS overload risk if a link leaks.</li>
+            <li>If a VPS cannot reach core.telegram.org, MTProto now shows clear warnings in the module, QR code, and Accesses.</li>
+            <li>Fixed XRay link generation after domain, SNI, or Gateway/self-SNI changes.</li>
+            <li>Fixed new XRay clients staying dimmed until manual refresh.</li>
+            <li>Improved server switching: the launcher updates the selected VPS state, Lite/Advanced mode, and update banners more reliably.</li>
+            <li>Full panel uninstall now cleans launcher SSH keys so bandju-launcher keys do not multiply across reinstall.</li>
+            <li>First module load now refreshes real VPS state more reliably instead of showing empty screens when data already exists.</li>
+            <li>RealiTLScanner now caches results and avoids rescanning every time.</li>
+            <li>Polished UI details: button states, progress overlays, fixed overlay width, long MTProto domains, service buttons, and the Windows taskbar icon.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.2.0</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Added Domain and Gateway sections.</li>
+            <li>Added DNS/port checks, Let's Encrypt certificate issuing, and a placeholder website.</li>
+            <li>XRay can now run through Gateway on 443 together with the placeholder website.</li>
+            <li>Lite Access now lets you choose the source for XRay and AmneziaWG clients.</li>
+            <li>Improved long-operation progress, privacy mode, and UI state after install/update flows.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.1.12</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Improved SSH handling on Windows and after VPS reinstall.</li>
+            <li>Added VPS OS check before installation.</li>
+            <li>Improved MTProto and XRay install progress.</li>
+            <li>Made the sidebar more compact and easier to use.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.1.11</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Updates now run from one button: the launcher and panel update in one flow when new versions are available.</li>
+            <li>The updates dialog is simpler: launcher and panel information is combined in one card, and rollback is hidden from the main flow.</li>
+            <li>Fixed AmneziaWG and XRay client deletion so removed clients no longer linger in the access list.</li>
+            <li>Added a privacy mode for hiding IP addresses in the interface.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.1.10</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Improved Amnezia config saving and update texts.</li>
+            <li>Fixed client status, activity, and traffic display.</li>
+            <li>Improved MTProto installation progress messages.</li>
+            <li>Improved compatibility with AmneziaWG clients created outside Bandju Panel.</li>
+            <li>Polished the macOS DMG.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.1.9</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Fixed diagnostics archive export: the launcher now asks where to save the file.</li>
+            <li>Fixed opening the logs screen from the sidebar.</li>
+            <li>Fixed translations and runtime messages in preset, transport, and service confirmation modals.</li>
+            <li>The VPS switching overlay now stays visible until the operation finishes.</li>
+            <li>CPU, RAM, and disk indicators now render as SVG for consistent display on macOS and Windows.</li>
+            <li>Panel includes the latest install, preset-flow, MTProto, and runtime-message fixes.</li>
+          </ul>
+        </article>
+
+        <article class="release-entry">
+          <div class="release-entry-head">
+            <p class="release-version">Version 1.1.8</p>
+            
+          </div>
+          <ul class="release-notes">
+            <li>Launcher and panel now share one update center.</li>
+            <li>Production panel updates now use a published release image instead of the local source tree.</li>
+          </ul>
+        </article>
+    </section>
+      <!-- shared-footer:start --><footer class="site-footer">
+  <div>
+    <p class="footer-brand">BandjuPanel</p>
+    <p class="footer-copy">VPN and proxy management on your VPS over SSH.</p>
+    <p class="footer-meta">© 2026 BandjuPanel</p>
+  </div>
+  <nav class="footer-links" aria-label="Footer">
+    <a class="footer-link" href="/en/">Home</a>
+    <a class="footer-link" href="/en/download/">Download</a>
+    <a class="footer-link" href="/en/#pricing">Pricing</a>
+    <a class="footer-link" href="/en/changelog/">Updates</a>
+    <a class="footer-link" href="/en/pro/">Pro Personal</a>
+    <a class="footer-link" href="/en/privacy/">Privacy</a>
+    <a class="footer-link" href="https://github.com/bandju/bandju-panel-releases/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noreferrer noopener">Third-party notices</a>
+  </nav>
+  <div class="footer-contact">
+    <a class="footer-contact-link" href="https://t.me/bandjupanel" target="_blank" rel="noreferrer noopener" aria-label="Telegram channel">
+      <span class="footer-icon-link" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="none" viewBox="0 0 18 17" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M16.62.131.67 6.59C-.201 6.857-.173 7.778.473 8l3.996 1.334 1.526 5.012c.186.55.334.756.655.76.333 0 .461-.125.808-.452.406-.408 1.023-1.049 2.001-2.064l4.16 3.29c.764.451 1.316.217 1.507-.76l2.606-13.79c.28-1.199-.379-1.555-1.11-1.2ZM5.095 9.028l9.086-6.096c.445-.321.587.038.386.285L7.026 10.47l-.387 3.62-1.544-5.06Z"></path>
+        </svg>
+      </span>
+      <span class="footer-contact-copy">
+        <span class="footer-contact-label">Channel</span>
+        <span class="footer-contact-value">@bandjupanel</span>
+      </span>
+    </a>
+    <a class="footer-contact-link" href="https://t.me/bandju_support_bot" target="_blank" rel="noreferrer noopener" aria-label="Telegram support">
+      <span class="footer-icon-link" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="none" viewBox="0 0 18 17" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M16.62.131.67 6.59C-.201 6.857-.173 7.778.473 8l3.996 1.334 1.526 5.012c.186.55.334.756.655.76.333 0 .461-.125.808-.452.406-.408 1.023-1.049 2.001-2.064l4.16 3.29c.764.451 1.316.217 1.507-.76l2.606-13.79c.28-1.199-.379-1.555-1.11-1.2ZM5.095 9.028l9.086-6.096c.445-.321.587.038.386.285L7.026 10.47l-.387 3.62-1.544-5.06Z"></path>
+        </svg>
+      </span>
+      <span class="footer-contact-copy">
+        <span class="footer-contact-label">Support</span>
+        <span class="footer-contact-value">@bandju_support_bot</span>
+      </span>
+    </a>
+    <a class="footer-contact-link" href="mailto:support@bandju.app" target="_blank" rel="noreferrer noopener" aria-label="Email">
+      <span class="footer-icon-link" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="none" viewBox="0 0 18 17" aria-hidden="true" focusable="false">
+          <path d="M2.25 4.25h13.5v8.5H2.25z" stroke="currentColor" stroke-width="1.35" rx="1.8"></path>
+          <path d="m3.4 5.35 5.02 4.11a.9.9 0 0 0 1.16 0l5.02-4.11" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="footer-contact-copy">
+        <span class="footer-contact-label">Email</span>
+        <span class="footer-contact-value">support@bandju.app</span>
+      </span>
+    </a>
+  </div>
+</footer>
+<!-- shared-footer:end -->
+    </main>
+    <script>
+    (() => {
+      const headerShell = document.querySelector('.header-shell');
+      const header = document.querySelector('.header');
+      const langSwitch = document.querySelector('.lang-switch');
+      const langTrigger = document.querySelector('.lang-trigger');
+      const langMenu = document.getElementById('lang-menu');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const siteMenu = document.querySelector('.menu');
+
+      const syncHeaderShellHeight = () => {
+        if (!headerShell || !header) return;
+        headerShell.style.height = `${header.offsetHeight}px`;
+      };
+
+      const setLanguageMenuOpen = (isOpen) => {
+        if (!langTrigger || !langMenu) return;
+        langTrigger.classList.toggle('is-open', isOpen);
+        langTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        langMenu.classList.toggle('is-open', isOpen);
+      };
+
+      const setSiteMenuOpen = (isOpen) => {
+        if (!header || !menuToggle) return;
+        header.classList.toggle('is-menu-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        window.requestAnimationFrame(syncHeaderShellHeight);
+      };
+
+      if (header) {
+        let stickyTicking = false;
+        const updateStickyHeader = () => {
+          header.classList.toggle('is-stuck', window.scrollY > 200);
+        };
+
+        syncHeaderShellHeight();
+        updateStickyHeader();
+
+        window.addEventListener('scroll', () => {
+          if (stickyTicking) return;
+          stickyTicking = true;
+          window.requestAnimationFrame(() => {
+            stickyTicking = false;
+            updateStickyHeader();
+          });
+        }, { passive: true });
+
+        window.addEventListener('resize', syncHeaderShellHeight, { passive: true });
+
+        if (typeof ResizeObserver !== 'undefined') {
+          const headerResizeObserver = new ResizeObserver(syncHeaderShellHeight);
+          headerResizeObserver.observe(header);
+        }
+      }
+
+      if (langTrigger && langMenu) {
+        langTrigger.addEventListener('click', () => {
+          setLanguageMenuOpen(!langMenu.classList.contains('is-open'));
+          setSiteMenuOpen(false);
+        });
+      }
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener('click', () => {
+          setSiteMenuOpen(!header.classList.contains('is-menu-open'));
+          setLanguageMenuOpen(false);
+        });
+
+        siteMenu.addEventListener('click', (event) => {
+          if (event.target.closest('.menu-link')) {
+            setSiteMenuOpen(false);
+          }
+        });
+      }
+
+      document.addEventListener('click', (event) => {
+        if (langSwitch && !langSwitch.contains(event.target)) {
+          setLanguageMenuOpen(false);
+        }
+
+        if (header && !header.contains(event.target)) {
+          setSiteMenuOpen(false);
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          setLanguageMenuOpen(false);
+          setSiteMenuOpen(false);
+        }
+      });
+    })();
+  </script>
+  </body></html>
