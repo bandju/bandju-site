@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "channel": "beta",
+  "releaseVersion": "2.0.6",
+  "scope": "panel",
+  "version": "2.0.5",
+  "publishedAt": "2026-11-02T07:54:33.000Z",
+  "notes": "Исправлены проверки безопасности при возврате из беты на панель 1.9.0.\nИсправлен повтор прерванного создания подключения XRay после перезапуска сервиса. Выданный ключ сохраняется.\nПовторный перевод в бету автоматически обрабатывает старую запись выключенного Cascade. Ручная очистка больше не требуется.\nДля получения всех исправлений обновите Beta-лаунчер и панель на выбранных VPS до версии 2.0.5.",
+  "pub_date": "2026-11-01T20:44:28.000Z",
+  "platforms": {
+    "windows-x86_64": {
+      "url": "https://github.com/bandju/bandju-panel-releases/releases/download/v2.0.5-beta/Bandju-Panel-Beta_2.0.5_windows_x64_setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUQlRSQXgvN3NWTVdXa0ZlUW8xUHVHT0lvWjJNdW5mTndFTjdvZXFxRFgxSVROdSs5anNkYmVjOHIyRVlVZWdkWEd6SkFMWW9PZ3Fzd0puVzNPUzEvblBkNnk1dVdScVFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTY3NTgxCWZpbGU6QmFuZGp1IFBhbmVsIEJldGFfMi4wLjVfeDY0LXNldHVwLmV4ZQphNzg4SitpU3pNdy9qNEVKR0V1S2NHRzBmSHlkcklvSXdOZG1ha21uUURlTys3NXlOY3g3T1JVMllLNGZoeGg4emNPVWJuWXp5S3BsMEFTVkNaL3FDZz09Cg=="
+    },
+    "darwin-aarch64": {
+      "url": "https://github.com/bandju/bandju-panel-releases/releases/download/v2.0.5-beta/Bandju-Panel-Beta_2.0.5_universal.app.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUQlRSQXgvN3NWTVNyVEVpT3NtK0FhcnZsZkw4dVo5N0pLSUtJWjllbGJUMWxsQVJPSHRUMnh5UHRnZGdkYUQxZ2liUyt0NTcrUXB1aGdLQ2hwcWcwQVdOemRZK1lTMVFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTY3MDU0CWZpbGU6QmFuZGp1IFBhbmVsIEJldGEuYXBwLnRhci5negowZkg3bGg3T3V2VDJMZEFLTlB2NGdOT0ZWSE1TdkE3NGZxUVJXOGF4YU94R2I0NFRGYzhDV3p0SlUxcTNWenQrZzMxVDhZTHF3U1FTa0xPNmxmMExDZz09Cg=="
+    },
+    "darwin-x86_64": {
+      "url": "https://github.com/bandju/bandju-panel-releases/releases/download/v2.0.5-beta/Bandju-Panel-Beta_2.0.5_universal.app.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUQlRSQXgvN3NWTVNyVEVpT3NtK0FhcnZsZkw4dVo5N0pLSUtJWjllbGJUMWxsQVJPSHRUMnh5UHRnZGdkYUQxZ2liUyt0NTcrUXB1aGdLQ2hwcWcwQVdOemRZK1lTMVFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTY3MDU0CWZpbGU6QmFuZGp1IFBhbmVsIEJldGEuYXBwLnRhci5negowZkg3bGg3T3V2VDJMZEFLTlB2NGdOT0ZWSE1TdkE3NGZxUVJXOGF4YU94R2I0NFRGYzhDV3p0SlUxcTNWenQrZzMxVDhZTHF3U1FTa0xPNmxmMExDZz09Cg=="
+    }
+  },
+  "releaseNotes": {
+    "ru": [
+      "Исправлена ошибка, из-за которой активный UDP-трафик AmneziaWG мог мешать обновлению панели и автоматическому возврату предыдущей версии.",
+      "Для получения исправления обновите панель на выбранных VPS до версии 2.0.6 через Beta-лаунчер. Обновление самого лаунчера не требуется."
+    ],
+    "en": [
+      "Fixed an issue where active AmneziaWG UDP traffic could prevent panel updates and automatic rollback to the previous version.",
+      "To receive this fix, update the panel on selected VPSs to version 2.0.6 through the Beta launcher. No launcher update is required."
+    ]
+  },
+  "launcher": {
+    "version": "2.0.5",
+    "downloads": {
+      "macos": {
+        "url": "https://github.com/bandju/bandju-panel-releases/releases/download/v2.0.5-beta/Bandju-Panel-Beta_2.0.5_universal.dmg",
+        "sha256": "eee7cba1567611e2ac6de0bdba96177e4d605ec89afec15c391acda22a151e2c"
+      },
+      "windows": {
+        "url": "https://github.com/bandju/bandju-panel-releases/releases/download/v2.0.5-beta/Bandju-Panel-Beta_2.0.5_windows_x64_setup.exe",
+        "sha256": "9cd53487e1c005cc6206ba95fbca593f121f06c227c217c7e92797cdc7339831"
+      }
+    },
+    "panelUpdateContract": 1
+  },
+  "panel": {
+    "version": "1.9.0",
+    "image": "ghcr.io/bandju/bandju-panel:1.9.0",
+    "stableImage": "ghcr.io/bandju/bandju-panel:stable",
+    "fallbackImages": [
+      "ghcr.dockerproxy.net/bandju/bandju-panel:1.9.0"
+    ],
+    "buildRef": "1.9.0+4600ec3",
+    "digest": "sha256:9b028ce978f4cc0b806ef3614a9ca15d3fc38fb5a1e4447763f8464f35d54183"
+  },
+  "panelUpdates": {
+    "contract": 1,
+    "panel": {
+      "version": "2.0.6",
+      "image": "ghcr.io/bandju/bandju-panel:2.0.6",
+      "stableImage": "ghcr.io/bandju/bandju-panel:stable",
+      "fallbackImages": [
+        "ghcr.dockerproxy.net/bandju/bandju-panel:2.0.6"
+      ],
+      "buildRef": "2.0.6+359967f",
+      "digest": "sha256:d098f13a6cc10c7f0d057a24e8604237071ae5b5f5ef1e1b614a9e40abf710dd"
+    }
+  },
+  "operationalConfig": {
+    "schemaVersion": 1,
+    "revision": 9,
+    "publishedAt": "2026-10-13T02:18:18Z",
+    "panelImageMirrorRegistries": [
+      "ghcr.dockerproxy.net"
+    ],
+    "runtimeImages": {
+      "routing-core": [
+        "ghcr.io/bandju/routing-core:test-20261013-amd64-isolation-6@sha256:27afa8c7c358bfd0e3e4785289267479ba8cd93d593f9fa65d6bae903fb6d050",
+        "ghcr.dockerproxy.net/bandju/routing-core:test-20261013-amd64-isolation-6@sha256:27afa8c7c358bfd0e3e4785289267479ba8cd93d593f9fa65d6bae903fb6d050"
+      ],
+      "probe-curl": [
+        "quay.io/curl/curl:8.12.1@sha256:84ec2a70279219a45d327ec1f2f112d019bc9dcdd0e19f1ba7689b646c2de0c2",
+        "docker.io/curlimages/curl:8.12.1@sha256:94e9e444bcba979c2ea12e27ae39bee4cd10bc7041a472c4727a558e213744e6"
+      ],
+      "domain-nginx": [
+        "docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10",
+        "ghcr.io/bandju/runtime-nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10",
+        "ghcr.dockerproxy.net/bandju/runtime-nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10"
+      ],
+      "certbot": [
+        "docker.io/certbot/certbot:v5.6.0@sha256:0107d084c225631fc64a8313e19adb07275f7296fde338f7dfa93986c80b2e3e",
+        "ghcr.io/bandju/runtime-certbot:v5.6.0@sha256:0107d084c225631fc64a8313e19adb07275f7296fde338f7dfa93986c80b2e3e",
+        "ghcr.dockerproxy.net/bandju/runtime-certbot:v5.6.0@sha256:0107d084c225631fc64a8313e19adb07275f7296fde338f7dfa93986c80b2e3e"
+      ],
+      "gateway-haproxy": [
+        "docker.io/library/haproxy:2.9-alpine@sha256:3e29449a6beed63262e36104adf531b4e41b359f61937303f5ea8607987b3748",
+        "ghcr.io/bandju/runtime-haproxy:2.9-alpine@sha256:3e29449a6beed63262e36104adf531b4e41b359f61937303f5ea8607987b3748",
+        "ghcr.dockerproxy.net/bandju/runtime-haproxy:2.9-alpine@sha256:3e29449a6beed63262e36104adf531b4e41b359f61937303f5ea8607987b3748"
+      ],
+      "panel-python-base": [
+        "docker.io/library/python:3.12-alpine@sha256:6d43704baacd1bfbe7c295d7f13079d5d8104ed33568873133f8fc69980419df",
+        "ghcr.io/bandju/runtime-python:3.12-alpine@sha256:6d43704baacd1bfbe7c295d7f13079d5d8104ed33568873133f8fc69980419df",
+        "ghcr.dockerproxy.net/bandju/runtime-python:3.12-alpine@sha256:6d43704baacd1bfbe7c295d7f13079d5d8104ed33568873133f8fc69980419df"
+      ],
+      "mtproxy-debian-base": [
+        "docker.io/library/debian:bookworm-slim@sha256:7b140f374b289a7c2befc338f42ebe6441b7ea838a042bbd5acbfca6ec875818",
+        "ghcr.io/bandju/runtime-debian:bookworm-slim@sha256:7b140f374b289a7c2befc338f42ebe6441b7ea838a042bbd5acbfca6ec875818",
+        "ghcr.dockerproxy.net/bandju/runtime-debian:bookworm-slim@sha256:7b140f374b289a7c2befc338f42ebe6441b7ea838a042bbd5acbfca6ec875818"
+      ],
+      "amneziawg": [
+        "ghcr.io/bandju/amneziawg:latest@sha256:20d79b7818f91c376b3287b10c72e51669c2a15dbb65266f2dbd21ed649aaca7",
+        "ghcr.dockerproxy.net/bandju/amneziawg:latest@sha256:20d79b7818f91c376b3287b10c72e51669c2a15dbb65266f2dbd21ed649aaca7"
+      ],
+      "xray": [
+        "ghcr.io/xtls/xray-core:latest@sha256:592ec4d11f656db95598d01e76dbcc6e002d67360b96a5436500a938230f52c7",
+        "ghcr.dockerproxy.net/xtls/xray-core:latest@sha256:592ec4d11f656db95598d01e76dbcc6e002d67360b96a5436500a938230f52c7"
+      ],
+      "hysteria2": [
+        "ghcr.io/bandju/hysteria:v2.12.2@sha256:9725222899831fd80ca802c4f6984b5f6ad96672248a25dd7d8f781f5029f87c",
+        "docker.io/tobyxdd/hysteria:v2.12.2@sha256:9725222899831fd80ca802c4f6984b5f6ad96672248a25dd7d8f781f5029f87c",
+        "ghcr.dockerproxy.net/bandju/hysteria:v2.12.2@sha256:9725222899831fd80ca802c4f6984b5f6ad96672248a25dd7d8f781f5029f87c"
+      ],
+      "hysteria2-warp": [
+        "ghcr.io/xtls/xray-core:26.6.1@sha256:3943bddece5fab72308a4415917f0391917b7b81ddbf50708988b89e6e2bd213",
+        "ghcr.dockerproxy.net/xtls/xray-core:26.6.1@sha256:3943bddece5fab72308a4415917f0391917b7b81ddbf50708988b89e6e2bd213"
+      ],
+      "mtproxy": [
+        "ghcr.io/bandju/mtproxy:telemt-3.5.5@sha256:74396cd10181d2e5f724bf42b48870182e32503febe9419f33a2f835c642f4bb",
+        "ghcr.dockerproxy.net/bandju/mtproxy:telemt-3.5.5@sha256:74396cd10181d2e5f724bf42b48870182e32503febe9419f33a2f835c642f4bb"
+      ],
+      "panel-runtime-base": [
+        "ghcr.io/bandju/runtime-python:panel-ctx-af3cc00ec8bcf7f6dabc221c0d4ba86361b407fcd10c8cf4b9eba473bfb0a8a7@sha256:1d5e6894be5b5a2f0aea7cf7d6bc3a9dd8298d24d4e6ebf9dbe6cb512581a728",
+        "ghcr.dockerproxy.net/bandju/runtime-python:panel-ctx-af3cc00ec8bcf7f6dabc221c0d4ba86361b407fcd10c8cf4b9eba473bfb0a8a7@sha256:1d5e6894be5b5a2f0aea7cf7d6bc3a9dd8298d24d4e6ebf9dbe6cb512581a728"
+      ]
+    },
+    "publicIpv4Sources": [
+      "https://api.ipify.org",
+      "https://icanhazip.com",
+      "https://ifconfig.io/ip",
+      "https://ifconfig.me/ip"
+    ]
+  }
+}
